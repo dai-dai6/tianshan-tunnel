@@ -827,7 +827,7 @@ function initCharts(){
     highwayChart.setOption({
       backgroundColor:'transparent',
       tooltip:{
-        trigger:'axis',
+        trigger:'axis',confine:true,
         backgroundColor:'rgba(10,22,40,.95)',borderColor:'rgba(255,255,255,.12)',
         textStyle:{color:'#eae8e4',fontSize:13,lineHeight:1.6},
         formatter:function(p){
@@ -835,7 +835,7 @@ function initCharts(){
           return '<b style="font-size:14px">'+d.name+'年</b><br/>公路里程：<b style="color:#E0A23D;font-size:16px">'+d.value+'</b> 万公里<br/><span style="color:rgba(234,232,228,.6);font-size:12px">'+hwDetails[d.dataIndex]+'</span>';
         }
       },
-      grid:{top:24,bottom:40,left:60,right:20},
+      grid:{top:32,bottom:48,left:60,right:20},
       xAxis:{type:'category',data:hwYears,
         axisLine:{lineStyle:{color:'rgba(255,255,255,.08)'}},
         axisLabel:{color:'rgba(234,232,228,.5)',fontSize:12,fontFamily:'JetBrains Mono'},

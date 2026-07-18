@@ -18,10 +18,10 @@
   --act3-color:#4FC3C0;
   --act4-color:#E0628A;
   --act5-color:#9AA5B1;
-  /* 数据配色标记 */
-  --data-red:#C0392B;
-  --data-green:#27AE60;
-  --data-orange:#E67E22;
+  /* 数据配色标记 - 红橙暖色系低饱和 */
+  --data-red:#B8564A;
+  --data-green:#C4966A;
+  --data-orange:#C89E6E;
   --data-quote:#2C3E50;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -655,7 +655,7 @@ img{max-width:100%;display:block;}
 .compare-table thead .ct-change{color:var(--data-green);background:rgba(39,174,96,.06);}
 .compare-table tbody tr{cursor:pointer;transition:background .2s;}
 .compare-table tbody tr:hover{background:rgba(255,255,255,.03);}
-.compare-table tbody tr.active-row{background:rgba(39,174,96,.05);}
+.compare-table tbody tr.active-row{background:rgba(200,158,110,.08);}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 
 /* ===== SOUL QUOTE (全屏灵魂句收束) ===== */
