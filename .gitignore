@@ -1,0 +1,8 @@
+*.py
+__pycache__/
+穿越天山_完整内嵌版.html
+穿越天山_长图.pdf
+index_deploy.html
+.DS_Store
+assets/images_compressed/
+.trae/

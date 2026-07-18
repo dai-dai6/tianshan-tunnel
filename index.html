@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>穿越天山：一条隧道如何改变新疆</title>
+<link rel="preconnect" href="https://fonts.loli.net" crossorigin>
+  <link href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== START OVERLAY ===== -->
+<div id="start-overlay">
+    <div class="start-card">
+    <div class="kicker">数据新闻 · 深度报道 · 滚动叙事</div>
+    <h2>穿越天山</h2>
+    <p class="lead">一条 22.13 公里的隧道，如何重新连接新疆？</p>
+    <p class="intro-text">天山横亘新疆中部，将 166 万平方公里的土地一分为二。北疆的准噶尔盆地与南疆的塔里木盆地之间，隔着一道平均宽度 300 公里、最高海拔超过 7000 米的天然屏障。千百年来，驼铃商队绕行其麓，戍边将士跋涉其谷，人们在达坂的风雪中寻找穿越的可能。</p>
+    <p class="intro-text">2025 年 12 月 26 日，世界最长高速公路隧道——天山胜利隧道正式通车。从这一天起，乌鲁木齐到库尔勒的车程从 7 小时压缩至 3.5 小时，穿越天山从近 3 小时的盘山险路变为约 20 分钟的地下坦途。</p>
+    <p class="intro-text">这不是一条普通的高速公路，这是一次地理距离的重新定义、一次经济版图的重新连接、一次 2500 万新疆人民生活半径的重新丈量。</p>
+    <p class="audio-hint">建议佩戴耳机，以获得完整的沉浸式声音体验。</p>
+    <button id="start-btn">开始体验 ▸</button>
+  </div>
+</div>
+
+<!-- ===== CONTROL BAR ===== -->
+<div class="control-bar" id="control-bar" style="opacity:0">
+  <span id="current-act-label">——</span>
+  <canvas id="meter" width="80" height="28"></canvas>
+  <button id="mute-btn">🔊 声音开启</button>
+</div>
+
+<!-- ===== DOT NAV ===== -->
+<nav class="dot-nav" id="dot-nav">
+  <div class="dot-nav-track"></div>
+  <div class="dot-nav-progress" id="dot-nav-progress"></div>
+  <a href="#act1" data-act="0" style="--dot-color:#E2693F"><span class="tip">ACT 01 · 危途</span></a>
+  <a href="#act2" data-act="1" style="--dot-color:#E0A23D"><span class="tip">ACT 02 · 凿穿</span></a>
+  <a href="#act3" data-act="2" style="--dot-color:#4FC3C0"><span class="tip">ACT 03 · 坦途</span></a>
+  <a href="#act4" data-act="3" style="--dot-color:#E0628A"><span class="tip">ACT 04 · 繁荣</span></a>
+  <a href="#act5" data-act="4" style="--dot-color:#9AA5B1"><span class="tip">ACT 05 · 未来</span></a>
+</nav>
+
+<!-- ===== CHAPTER SUMMARY SIDEBAR ===== -->
+<div id="chapter-summary">
+  <div class="summary-card">
+    <div class="summary-label"></div>
+    <div class="summary-text"></div>
+  </div>
+</div>
+
+<!-- ===== PROGRESS BAR ===== -->
+<div id="progress-bar"></div>
+
+<!-- ============================================================ -->
+<!-- ACT 01 · 危途                                                -->
+<!-- ============================================================ -->
+<section class="act-section mag-left" id="act1" data-act-index="0">
+  <div class="bg-grad" style="background:radial-gradient(ellipse at 20% 40%,rgba(226,105,63,.12) 0%,transparent 60%)"></div>
+
+  <div class="act-header">
+    <span class="act-index">ACT 01</span>
+    <h2 class="act-title" style="color:var(--act1-color)">危途</h2>
+    <p class="act-subtitle">4280 米，一道翻越了千年的坎</p>
+  </div>
+
+  <div class="injected-image">
+    <img src="assets/images/topo_map.png" alt="天山山脉海拔地形示意图">
+    <p class="img-caption">天山山脉海拔地形示意图：准噶尔盆地（约500米）— 北天山（2000-3000米）— 中天山（3000-4000米）— 南天山（4000-5000米）— 塔里木盆地（约1000米）</p>
+  </div>
+
+  <div class="prose-block">
+    <p>横亘在准噶尔盆地与塔里木盆地之间的天山，是一道海拔落差超过 4000 米的天然屏障。北坡的乌鲁木齐海拔约 800 米，越过 4280 米的胜利达坂，南坡的库尔勒已降至 930 米。直线距离不过 250 公里，但实际行驶里程却接近 470 公里——天山，让"近在咫尺"变成了"远在天边"。</p>
+    <div class="data-callout">乌鲁木齐与库尔勒之间的直线距离仅约 250 公里，相当于北京到石家庄。但天山横亘其间，实际公路里程达 470 余公里，驾车需翻越海拔 3000 米以上的达坂，冬季常因积雪结冰中断通行。据新疆交通运输厅统计，全年能够稳定通行的翻越天山通道，长期以来仅有一条——绕行托克逊，耗时超过 7 小时。</div>
+  </div>
+
+  <div class="audio-trigger-wrap">
+    <button class="audio-trigger-btn" data-sound="caravan">▶ 听见达坂 · 风雪与驼铃</button>
+  </div>
+
+  <div class="big-stat">
+    <span class="big-num" data-target="7" data-suffix="h+">0</span>
+    <span class="big-label">乌鲁木齐—库尔勒，老路车程</span>
+  </div>
+
+  <div class="prose-block">
+    <p>"常年行走在乌鲁木齐与库尔勒之间的货运司机眼中，这意味着清晨出发、傍晚抵达的漫长奔波，若遇大雪封山，一等就是好多天。"——中交新疆交通投资发展有限公司总工程师苗宝栋如此描述老路的日常。</p>
+  </div>
+
+  <div class="prose-block">
+    <p>216 国道养护工坎阶别克·哈吾斯力力说得更直接："以后去库尔勒就不用翻越危险的老虎口或者绕行 500 公里了。"</p>
+    <cite class="cite">—— 216国道养护工 <strong>坎阶别克·哈吾斯力力</strong></cite>
+  </div>
+
+  <div class="prose-block">
+    <p>对于世代生活在天山两侧的人们来说，这条路不是选项，是刚需。南疆的羊要进北疆的市场，北疆的货要下南疆的县城，病人要转院，学生要回家——天山阻隔的，从来不只是风景。</p>
+  </div>
+
+  <h3 class="sub-heading">新疆公路总里程变化</h3>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>年份</th><th>公路里程（万公里）</th></tr></thead>
+      <tbody>
+        <tr><td>1949</td><td>0.34</td></tr>
+        <tr><td>1960</td><td>1.87</td></tr>
+        <tr><td>1978</td><td>2.38</td></tr>
+        <tr><td>2024</td><td>23</td></tr>
+        <tr><td>2025年底</td><td>24.6</td></tr>
+      </tbody>
+    </table>
+    <p class="data-source">数据来源：新疆交通运输厅公路里程统计（1949-2025）</p>
+  </div>
+
+  <div class="prose-block">
+    <p>新疆的公路史，是一部用脚步丈量荒漠的拓荒史。1949 年，新疆全区公路通车里程仅有 3361 公里——不及今天北京一座城市的地铁运营里程。到 1978 年改革开放前夕，这个数字增长到 2.38 万公里。2024 年底，新疆公路总里程突破 23 万公里，2025 年底达到 24.6 万公里。</p>
+    <p>76 年间，新疆公路里程增长了 72 倍，但天山始终是横亘在南北疆之间的"最后一公里"——不是没有路，是没有一条不绕远、不封山、不冒险的路。</p>
+  </div>
+
+  <div class="data-callout">1949 年 0.34 万公里 → 2025 年 24.6 万公里，增长 72 倍。但截至 2020 年乌尉高速开工前，跨越天山的高等级公路数量为零。新疆"疆内环起来"的交通格局，天山是最后一块拼图。</div>
+</section>
+
+<!-- ===== TRANSITION 1→2 ===== -->
+<div class="act-transition" data-transition="1">
+  <div class="transition-visual"></div>
+  <p class="transition-text">接下来，深入天山腹地</p>
+  <p class="transition-sub">22.13 公里的地下征途即将开始</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- ACT 02 · 凿穿                                                -->
+<!-- ============================================================ -->
+<section class="act-section mag-right" id="act2" data-act-index="1">
+  <div class="bg-grad" style="background:radial-gradient(ellipse at 80% 40%,rgba(224,162,61,.12) 0%,transparent 60%)"></div>
+
+  <div class="act-header">
+    <span class="act-index">ACT 02</span>
+    <h2 class="act-title" style="color:var(--act2-color)">凿穿</h2>
+    <p class="act-subtitle">22.13 公里，在豆腐脑里做工程</p>
+  </div>
+
+  <div class="injected-image">
+    <img src="assets/images/world_ranking.png" alt="世界高速公路隧道单洞全长排名">
+  </div>
+
+  <div class="prose-block">
+    <p>22.13 公里是什么概念？它相当于 5 座南京长江大桥首尾相连，比排名第二的挪威洛达尔隧道（24.5 公里，但非高速公路标准）在高速公路隧道分类中更胜一筹。天山胜利隧道以 22.13 公里的单洞长度，成为世界高速公路隧道的新标杆。</p>
+    <p>但"最长"只是表象。"最深"和"最难"才是它的底色：最大埋深 1112.6 米，相当于把 3 座广州塔"小蛮腰"叠起来埋进山体；穿越 16 条地质断裂带，高寒、高海拔、高地应力、高地震烈度、高环保要求——工程界称之为"五高"禁区。</p>
+    <div class="data-callout">天山胜利隧道 22.13km（世界最长高速公路隧道）| 最大埋深 1112.6m | 2 号竖井深 707m（世界最深高速公路竖井）| 穿越 16 条地质断裂带 | 高地应力达 22 兆帕</div>
+  </div>
+
+  <div class="injected-image">
+    <img src="assets/images/tunnel_overview_info.png" alt="天山胜利隧道工程总览信息图">
+    <p class="img-caption">天山胜利隧道工程总览：乌尉高速总长319.7公里，隧道全长22.13公里（世界最长高速公路隧道），最大埋深1112.6米，穿越16条地质断裂带，采用"三洞+四竖井"长隧短打方案。</p>
+  </div>
+
+  <div class="prose-block">
+    <p>乌尉高速全长 319.7 公里，双向四车道，设计时速 100-120 公里。隧道采用全球首创的"三洞 + 四竖井"方案——在传统左右双主洞之间增设中导洞，以硬岩掘进机（TBM）先行打通，再向两侧主洞开辟 14 个作业面同时施工，实现"长隧短打"。</p>
+  </div>
+
+  <div class="data-callout">乌尉高速 319.7km 全线 | 隧道 22.13km | 双向 4 车道 | 设计时速 100-120km/h | 三洞+四竖井方案 | 14 个作业面同时施工 | 工期从 72 个月压缩至 52 个月</div>
+
+  <blockquote class="pull-quote">
+    "天山打隧道，就像在豆腐脑里做工程。"在破碎带里掘进，塌方、岩爆、软岩大变形、突涌水随时可能发生。干了一辈子基建的他，也感受到了前所未有的压力。
+    <cite>—— 中交新疆交通投资发展有限公司总工程师 <strong>苗宝栋</strong></cite>
+  </blockquote>
+
+  <div class="injected-image">
+    <img src="assets/images/geological_section.png" alt="天山胜利隧道地质纵断面示意图">
+  </div>
+
+  <h3 class="sub-heading">16条地质断裂带分布</h3>
+  <div class="prose-block">
+    <p>图上的 16 条红线，是 16 道"鬼门关"。北段进口群集中了 12 条断裂带，南段出口群 4 条。其中 F6 和 F7 是两条宽度超过 350 米的超大型破碎带，其余 14 条为中小型次生派生断裂。</p>
+    <p>地质纵断面显示，隧道穿越的岩层从炭质板岩到花岗闪长岩，从石英片岩到断层破碎带，硬度、稳定性、含水率天差地别。</p>
+    <div class="data-callout">16 条断裂带 | 北段 12 条（进口群）+ 南段 4 条（出口群）| F6、F7 宽度超 350m | 岩层类型：炭质板岩、花岗闪长岩、石英片岩等</div>
+  </div>
+
+  <div class="injected-image">
+    <img src="assets/images/fault_distribution.png" alt="16条地质断裂带分布">
+    <p class="img-caption">天山胜利隧道地质纵断面示意图：展示炭质板岩、花岗闪长岩、石英片岩等岩层分布及断层产状，全线共穿越16条断层破碎带</p>
+  </div>
+
+  <blockquote class="pull-quote">
+    "这是我工作近30年遇到的最复杂的工程。"
+    <cite>—— 乌尉项目总经理部总经理 <strong>周政</strong></cite>
+  </blockquote>
+
+  <div class="big-stat">
+    <span class="big-num" data-dual data-dual-static="72 → " data-dual-target="52" data-dual-suffix="个月">72 → 0个月</span>
+    <span class="big-label">传统钻爆法预计工期 → 创新"主洞+中导洞"工法压缩为实际工期（个月）</span>
+  </div>
+
+  <div class="prose-block">
+    <p>如果采用传统的"打眼放炮"钻爆法，打通天山胜利隧道需要 72 个月——整整 6 年。但"老乡们等不起"，苗宝栋说，"创新是唯一选择。"</p>
+    <p>中交集团为天山胜利隧道量身定制了两台硬岩掘进机——"天山号"和"胜利号"。它们像两条钢铁巨龙，在多种世界级复杂地层中安全、高效地掘进。配合"主洞+中导洞"的创新工法，14 个作业面同时推进，最终将工期从 72 个月压缩至 52 个月。</p>
+  </div>
+
+  <div class="data-callout">传统钻爆法 72 个月 → 创新工法 52 个月 | 工期压缩 20 个月，节约近 28% | 2024.12.30 贯通 | 2025.12.26 全线通车</div>
+
+  <div class="audio-trigger-wrap">
+    <button class="audio-trigger-btn" data-sound="tbm">▶ 听见凿穿 · 掘进与爆破</button>
+  </div>
+
+  <div class="injected-image">
+    <img src="assets/images/tbm_timeline.png" alt="天山胜利隧道施工关键节点时间线">
+    <p class="img-caption">天山胜利隧道施工关键节点时间线</p>
+  </div>
+
+  <div class="injected-image">
+    <img src="assets/images/tbm_project.png" alt="天山号与胜利号TBM掘进机">
+  </div>
+
+  <blockquote class="pull-quote">
+    "这是技术突破的胜利，是生态保护的胜利，更是为新疆人民开辟幸福之路的胜利。"
+    <cite>—— 中交新疆交通投资发展有限公司总工程师 <strong>苗宝栋</strong>，2024年12月30日天山胜利隧道贯通时</cite>
+  </blockquote>
+</section>
+
+<!-- ===== TRANSITION 2→3 ===== -->
+<div class="act-transition" data-transition="2">
+  <div class="transition-visual"></div>
+  <p class="transition-text">隧道通了，天山变矮了</p>
+  <p class="transition-sub">从 7 小时到 3.5 小时，距离正在被重新定义</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- ACT 03 · 坦途                                                -->
+<!-- ============================================================ -->
+<section class="act-section mag-left" id="act3" data-act-index="2">
+  <div class="bg-grad" style="background:radial-gradient(ellipse at 20% 50%,rgba(79,195,192,.12) 0%,transparent 60%)"></div>
+
+  <div class="act-header">
+    <span class="act-index">ACT 03</span>
+    <h2 class="act-title" style="color:var(--act3-color)">坦途</h2>
+    <p class="act-subtitle">7 小时 → 3.5 小时，距离被重新定义</p>
+  </div>
+
+  <div class="injected-image">
+    <img src="assets/images/route_comparison.png" alt="通车前后路线对比">
+    <p class="img-caption">通车前后对比：路线长度470km→319.7km；穿越天山耗时3小时→20分钟；乌鲁木齐-库尔勒总耗时7小时→3.5小时；通行条件从冬季封山变为全年畅通；设计时速60-30km/h→100-120km/h</p>
+  </div>
+
+  <div class="prose-block">
+    <p>通车前，乌鲁木齐到库尔勒：470 公里，7 小时，翻越海拔 4280 米的胜利达坂，冬季封山等于断路。通车后：319.7 公里，3.5 小时，穿隧道 20 分钟，全年 365 天畅通。</p>
+    <p>路线缩短 150 公里，时间减半，但改变的不只是数字。过去，翻越天山的 3 小时是盘山路上的心惊胆战；现在，穿越天山的 20 分钟是隧道里的光影画廊——隧道内壁复刻了新疆的蓝天、白云、星空和沙漠胡杨，让约 20 分钟的穿行不再单调。</p>
+    <div class="data-callout">路线长度 470km → 319.7km（缩短 150km）| 穿越天山 3 小时 → 20 分钟 | 全程 7 小时 → 3.5 小时 | 冬季封山 → 全年畅通 | 设计时速 60-30km/h → 100-120km/h</div>
+  </div>
+
+  <div class="triple-stat">
+    <div class="ts-item">
+      <div class="ts-num">7h → 3.5h</div>
+      <div class="ts-label">全程驾车时长压缩 50%</div>
+    </div>
+    <div class="ts-item">
+      <div class="ts-num">约 20min</div>
+      <div class="ts-label">穿越天山隧道本身耗时</div>
+    </div>
+    <div class="ts-item">
+      <div class="ts-num">150km</div>
+      <div class="ts-label">路线缩短距离</div>
+    </div>
+  </div>
+
+  <blockquote class="pull-quote">
+    "中午到库尔勒吃个饭再回来！"
+    <cite>—— 乌鲁木齐市民 <strong>李春成</strong>，退休后常去南疆旅游的他，通车当天排在永丰收费站的第一位，又制定了许多新的自驾游计划。（据人民日报报道）</cite>
+  </blockquote>
+
+  <h3 class="sub-heading">沿线站点与市县</h3>
+  <div class="route-stations" id="route-stations">
+    <div class="station-item"><span class="station-dot"></span><span class="station-name">乌鲁木齐市永丰乡</span></div>
+    <div class="station-item"><span class="station-dot"></span><span class="station-name">后峡</span></div>
+    <div class="station-item station-highlight"><span class="station-dot"></span><span class="station-name">胜利达坂（天山胜利隧道）</span></div>
+    <div class="station-item"><span class="station-dot"></span><span class="station-name">乌拉斯台</span></div>
+    <div class="station-item"><span class="station-dot"></span><span class="station-name">巴伦台</span></div>
+    <div class="station-item"><span class="station-dot"></span><span class="station-name">和静县</span></div>
+    <div class="station-item"><span class="station-dot"></span><span class="station-name">塔什店</span></div>
+    <div class="station-item"><span class="station-dot"></span><span class="station-name">库尔勒市</span></div>
+    <div class="station-item"><span class="station-dot"></span><span class="station-name">尉犁县</span></div>
+  </div>
+  <div class="prose-block">
+    <p>这不是一串地名，而是一条经济走廊。乌鲁木齐的消费市场、和静的农牧产品、库尔勒的物流枢纽、尉犁的旅游资源——一条路将它们串联在一起。</p>
+    <div class="data-callout">串联 3 个地州市（乌鲁木齐、巴州、尉犁）| 辐射人口超 500 万 | 沿线景区 10+</div>
+  </div>
+
+  <blockquote class="pull-quote">
+    "'疆内环起来、进出疆快起来'的目标初步实现。"
+    <cite>—— 新疆维吾尔自治区交通运输厅一级巡视员 <strong>王永轩</strong></cite>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    "通车不是终点，而是新的起点。隧道通车后，乌鲁木齐到库尔勒的车程将从原来的7小时缩短至3.5小时。这意味着，南北疆的人员往来、物资流通、经济联系将发生革命性变化，新疆的时空格局将被重塑。"
+    <cite>—— 中交新疆交通投资发展有限公司总工程师 <strong>苗宝栋</strong></cite>
+  </blockquote>
+</section>
+
+<!-- ===== TRANSITION 3→4 ===== -->
+<div class="act-transition" data-transition="3">
+  <div class="transition-visual"></div>
+  <p class="transition-text">路通了，机会来了</p>
+  <p class="transition-sub">当距离缩短，繁荣开始生长</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- ACT 04 · 繁荣                                                -->
+<!-- ============================================================ -->
+<section class="act-section mag-right" id="act4" data-act-index="3">
+  <div class="bg-grad" style="background:radial-gradient(ellipse at 80% 40%,rgba(224,98,138,.12) 0%,transparent 60%)"></div>
+
+  <div class="act-header">
+    <span class="act-index">ACT 04</span>
+    <h2 class="act-title" style="color:var(--act4-color)">繁荣</h2>
+    <p class="act-subtitle">0.83 亿，一个春节的增量</p>
+  </div>
+
+  <div class="big-stat">
+    <span class="big-num" data-target="3.11" data-suffix="亿元" data-decimals="2">0</span>
+    <span class="big-label">通车首个春节，库尔勒文旅消费总额</span>
+  </div>
+
+  <div class="injected-image">
+    <img src="assets/images/korla_tourism.png" alt="通车前后春节文旅消费对比">
+    <p class="img-caption">通车前后春节文旅消费对比：全市接待游客总量 39.26万人次→52.80万人次（+34.5%）；文旅消费总额 2.28亿元→3.11亿元（+36.4%）；人均消费提升约+36.4%；总增收0.83亿元</p>
+  </div>
+
+  <div class="prose-block">
+    <p>通车后的第一个春节，库尔勒交出了一份令人意外的答卷。全市接待游客总量从 39.26 万人次跃升至 52.80 万人次，增长 34.5%；文旅消费总额从 2.28 亿元增至 3.11 亿元，增长 36.4%。仅一个春节，库尔勒就增收 8300 万元。</p>
+    <div class="data-callout">游客 39.26 万 → 52.80 万（+34.5%）| 消费 2.28 亿 → 3.11 亿（+36.4%）| 人均消费提升约 36.4% | 总增收 0.83 亿元</div>
+  </div>
+
+  <blockquote class="pull-quote">
+    "乌尉高速通车，让一日内往返体验南北疆不同风情的愿望得以实现。"
+    <cite>—— 巴州昆仑四运旅游服务有限公司副总经理 <strong>李震</strong></cite>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    "马上就是博斯腾湖冬捕活动了，乌尉高速全线通车会带来更多游客，我们已经做好了充足的准备。"
+    <cite>—— 巴音郭楞州博湖县文旅局局长 <strong>袁阳</strong>（据人民日报报道）</cite>
+  </blockquote>
+
+  <div class="prose-block">
+    <p>天山—沙漠—绿洲三大景观带被一条路串联，沿线文旅产业加速从"打卡式"向"深度游"转型。</p>
+  </div>
+
+  <blockquote class="pull-quote">
+    "乌尉高速建成通车，于新疆加快丝绸之路经济带核心区交通枢纽建设具有重要意义。"
+    <cite>—— 自治区交通运输厅党委书记、副厅长 <strong>郭胜</strong></cite>
+  </blockquote>
+
+  <h3 class="sub-heading">南北疆经济协同发展</h3>
+
+  <div class="injected-image">
+    <img src="assets/images/north_south_comparison.png" alt="南北疆GDP对比">
+    <p class="img-caption">南北疆GDP差距比值（亿元）：2023年 南疆5744.13 / 北疆11811.01（比值2.06）；2024年 南疆6128.33 / 北疆12680.94（比值2.07）；2025年 南疆6438.98 / 北疆13192.11（比值2.05）</p>
+  </div>
+
+  <div id="echart-comparison" style="width:100%;height:320px;"></div>
+
+  <div class="prose-block">
+    <p>南北疆的经济差距，是新疆发展最核心的结构性问题。2023 年，南疆五地州 GDP 合计 5744 亿元，北疆 11811 亿元，差距比值 2.06。2024 年，差距比值微升至 2.07。2025 年，乌尉高速通车元年，差距比值回落至 2.05。</p>
+    <p>0.02 的微小变化，背后是南疆经济增速的加快。交通基础设施的改善，正在逐步缩小这道横亘多年的发展鸿沟。</p>
+    <div class="data-callout">2023 年 南疆 5744 亿 / 北疆 11811 亿（比值 2.06）| 2024 年 南疆 6128 亿 / 北疆 12681 亿（比值 2.07）| 2025 年 南疆 6439 亿 / 北疆 13192 亿（比值 2.05）——差距比值首次回落</div>
+  </div>
+
+  <blockquote class="pull-quote">
+    "乌尉高速全线通车后，有效贯通南北疆经济脉络，让区域资源流动更通畅、产业联动更紧密，构建起区域协同发展新格局。"
+    <cite>—— 自治区交通运输厅运输管理处干部 <strong>王瑞</strong></cite>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    "一直都盼着。乌尉高速通车了，我们的'致富快车'也可以出发了。"
+    <cite>—— 乌鲁木齐市乌鲁木齐县萨尔达坂乡萨尔乔克村党支部书记 <strong>哈力夏·夏依木尔旦</strong></cite>
+  </blockquote>
+
+  <h3 class="sub-heading">物流变革：和静县牧业</h3>
+  <div class="injected-image">
+    <img src="assets/images/hejing_transport.png" alt="和静县牧业运费成本对比">
+    <p class="img-caption">和静县牧业运费成本（陆运）对比：费用成本（过路费+烧气）通车前2050元→通车后1900元；时间成本通车前2天1个往返→通车后1天1个往返</p>
+  </div>
+
+  <div class="prose-block">
+    <p><strong>和静牧业：运费降了，羊能进乌鲁木齐了</strong></p>
+    <p>巴音布鲁克振鑫牧业的孟克巴图算了一笔账：通车前，一趟货车到乌鲁木齐，费用 2050 元，2 天才能跑一个往返；通车后，费用降到 1900 元，1 天就能跑完一个往返。"以前天山阻隔，我们南疆的羊很难进入乌鲁木齐市场。"孟克巴图说，通车后客户主动找上门，公司成立以来第一次有这么多订单。</p>
+    <div class="data-callout">和静牧业运费 2050 元 → 1900 元 | 时间 2 天 → 1 天</div>
+  </div>
+
+  <h3 class="sub-heading">巴州冷水鱼：从 8% 损耗到近零</h3>
+  <div class="injected-image">
+    <img src="assets/images/fish_transport.png" alt="巴州冷水鱼运输损耗率对比">
+    <p class="img-caption">巴州冷水鱼运输损耗率：和静县→乌鲁木齐 通车前10小时/死亡率15%→通车后3.5小时/死亡率3%（时间减少65%，死亡率降低70%）；博斯腾湖→乌鲁木齐 通车前48小时/死亡率4%→通车后24小时/死亡率2%（时间减少50%，死亡率降低50%）；巴州→内地 通车前60小时/死亡率5%→通车后40小时/死亡率3%（时间减少30%，死亡率降低40%）</p>
+  </div>
+
+  <div class="prose-block">
+    <p><strong>巴州冷水鱼：从 8% 损耗到近零</strong></p>
+    <p>巴州万锦水产的许纪伟更直观地感受到了变化：和静到乌鲁木齐的冷水鱼运输，时间从 10 小时压缩到 3.5 小时，死亡率从 15% 降至 3%——时间减少 65%，死亡率降低 70%。博斯腾湖到乌鲁木齐的运输也从 48 小时压缩到 24 小时。公司年产 50 余吨冷水鱼，通车后预计年产值从 300 万增长到 450 万。</p>
+    <div class="data-callout">冷水鱼 和静→乌市 10h/15% 死亡率 → 3.5h/3% | 博湖→乌市 48h/4% → 24h/2% | 巴州→内地 60h/5% → 40h/3%</div>
+  </div>
+
+  <blockquote class="pull-quote">
+    "高速开通后，我们往各地发运产品会更方便，物流成本也能降低不少。目前公司年产商品鱼50余吨，年产值大概300万，通车后运输效率提升会极大带动销售增长，预计年产值能达到450万左右。"
+    <cite>—— 巴州万锦水产有限责任公司负责人 <strong>许纪伟</strong></cite>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    "依托这条路，和静县光热滋养的高色素辣椒、草原雪水哺育的牛羊肉等特色农产品，可实现3小时直达北疆核心市场，彻底打破长期以来的交通瓶颈，推动农业向高质量、规模化、品牌化转型。"
+    <cite>—— 和静县农业农村局党组成员、副局长 <strong>单丁苏荣</strong></cite>
+  </blockquote>
+</section>
+
+<!-- ===== TRANSITION 4→5 ===== -->
+<div class="act-transition" data-transition="4">
+  <div class="transition-visual"></div>
+  <p class="transition-text">从 3.23 亿到 5 亿</p>
+  <p class="transition-sub">交通正在改变旅游版图，路还在延伸</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- ACT 05 · 未来                                                -->
+<!-- ============================================================ -->
+<section class="act-section mag-center" id="act5" data-act-index="4">
+  <div class="bg-grad" style="background:radial-gradient(ellipse at 50% 40%,rgba(154,165,177,.1) 0%,transparent 60%)"></div>
+
+  <div class="act-header">
+    <span class="act-index">ACT 05</span>
+    <h2 class="act-title" style="color:var(--act5-color)">未来</h2>
+    <p class="act-subtitle">从 3.23 亿到 5 亿，路还在延伸</p>
+  </div>
+
+  <div class="big-stat">
+    <span class="big-num" data-target="3.23" data-suffix="亿人次" data-decimals="2">0</span>
+    <span class="big-label">2025年新疆全年接待游客量</span>
+  </div>
+
+  <!-- 旅游对比滑块 -->
+  <div class="tourism-compare" id="tourism-compare">
+    <div class="compare-label compare-left">2015年</div>
+    <div class="compare-label compare-right">2025年</div>
+    <div class="compare-visual">
+      <div class="compare-bar-wrap">
+        <div class="compare-bar compare-2015" style="width:19%"><span>0.61 亿</span></div>
+      </div>
+      <div class="compare-bar-wrap">
+        <div class="compare-bar compare-2025" style="width:100%"><span>3.23 亿</span></div>
+      </div>
+    </div>
+    <div class="compare-slider-wrap">
+      <input type="range" id="tourism-slider" min="0" max="100" value="100" class="compare-slider">
+      <div class="compare-growth" id="compare-growth">增长 <strong>5.3 倍</strong></div>
+    </div>
+    <div class="compare-detail" id="compare-detail">
+      <div class="compare-stat"><span class="cs-label">游客花费</span><span class="cs-val" id="cs-spend">3700 亿元（2025）</span></div>
+      <div class="compare-stat"><span class="cs-label">同比增速</span><span class="cs-val" id="cs-growth">+8.0%</span></div>
+    </div>
+  </div>
+
+  <div id="echart-tourism" style="width:100%;height:360px;"></div>
+
+  <div class="prose-block">
+    <p>新疆旅游业的增长曲线，是一条陡峭的上升线。2015 年，全年接待游客 0.61 亿人次；2019 年突破 2 亿大关，达到 2.13 亿人次；经历了 2020 年的短暂回落后，2023 年反弹至 2.65 亿人次；2025 年，全年接待游客 3.23 亿人次，游客花费 3700 亿元，同比分别增长 8% 和 8.4%，创历史新高。</p>
+    <p>从 0.61 亿到 3.23 亿，十年间增长了 5.3 倍。旅游业的爆发式增长，背后是独库公路、阿禾公路、乌尉高速等一条条"最美公路"的相继通车。"新疆是个好地方"从一句口号变成了 3.23 亿人次的选择。</p>
+    <div class="data-callout">2015 年 0.61 亿 → 2019 年 2.13 亿 → 2020 年 1.58 亿 → 2023 年 2.65 亿 → 2025 年 3.23 亿 | 十年增长 5.3 倍 | 2025 年游客花费 3700 亿元</div>
+  </div>
+
+  <div class="big-stat" style="margin-top:32px;">
+    <span class="big-num" data-target="5" data-suffix="亿" data-decimals="0">0</span>
+    <span class="big-label">2030年规划目标：年接待游客</span>
+  </div>
+
+  <div class="prose-block">
+    <p>2026 年自治区政府工作报告提出，深入实施旅游兴疆战略，"十五五"期间力争年接待游客突破 5 亿人次。乌尉高速只是起点——"十五五"启程，自治区交通运输厅党委书记郭胜表示，将"锚定加快建设交通强国目标任务"。</p>
+    <p>2026 年 6 月上旬，全疆累计接待游客 1120 万人次，同比增长 7.55%。独库公路沿线、赛里木湖景区日均接待量分别同比增长 35% 和 41%。自驾游占总出行比例的 87.32%，深度体验式旅游正在取代打卡式观光。</p>
+    <div class="data-callout">2030 年目标 5 亿人次 | 2026 年 6 月上旬 1120 万人次（+7.55%）| 赛里木湖日均 12.6 万人次（+41%）| 自驾游占比 87.32%</div>
+  </div>
+
+  <blockquote class="pull-quote">
+    "数字不重要，重要的是这些工程是否真正造福人民。"
+    <cite>—— 中交新疆交通投资发展有限公司总工程师 <strong>苗宝栋</strong></cite>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    "'十五五'启程，我们将锚定加快建设交通强国目标任务。"
+    <cite>—— 自治区交通运输厅党委书记 <strong>郭胜</strong></cite>
+  </blockquote>
+
+  <div class="audio-trigger-wrap">
+    <button class="audio-trigger-btn" data-sound="future">▶ 听见未来 · 路还在延伸</button>
+  </div>
+
+  <div class="ending-cta">
+    <p class="ending-line">路，还在继续延伸。</p>
+  </div>
+
+  <div class="prose-block" style="text-align:center; max-width:600px; margin:0 auto;">
+    <p>从天山胜利隧道望出去，乌尉高速往东可通过京新高速衔接京津冀，通过连霍高速衔接长三角；往南通过西和高速衔接西部陆海新通道，通达粤港澳大湾区和成渝地区。这条路不仅连接了乌鲁木齐和库尔勒，更将成为中国东部经济圈与亚欧国家连通的重要枢纽。</p>
+    <p>正如那位 26 岁的新疆导游迪丽努尔·吐尔逊对台湾游客说的那句话，点燃了无数网友的共鸣："不是打穿天山容易，而是天山那头有人民。"</p>
+    <p style="margin-top:24px; color:var(--ink-50);">穿越天山，从来不只是工程问题。</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- DATA SOURCES                                                 -->
+<!-- ============================================================ -->
+<section class="data-sources-section" id="data-sources">
+  <h2>数据来源与方法论</h2>
+  <p class="ds-intro">本作品数据来源于以下公开渠道，所有数据均保留原始口径，未经加工篡改：</p>
+  <ul class="ds-list">
+    <li><strong>新疆维吾尔自治区交通运输厅：</strong>公路里程统计（1949-2025）</li>
+    <li><strong>新疆维吾尔自治区 2026 年政府工作报告</strong>（2026.1.27）</li>
+    <li><strong>新疆维吾尔自治区文化和旅游厅：</strong>2025年旅游统计公报</li>
+    <li><strong>人民日报：</strong>《乌尉高速全线通车》专题报道（2025.12.27 第 5 版）</li>
+    <li><strong>央视新闻：</strong>"闪耀中国红"乌尉高速通车直播报道（2025.12.26）</li>
+    <li><strong>石榴云/新疆日报：</strong>《乌尉高速通车背后的正确政绩观》（2026.7.7）</li>
+    <li><strong>中交新疆交通投资发展有限公司：</strong>公开工程参数</li>
+    <li><strong>中国数据新闻大赛第十届获奖作品数据库</strong></li>
+  </ul>
+  <h3>数据处理说明</h3>
+  <p>所有表格数据直接引用原始出处；历史趋势数据经 Excel 整理核对；工程参数来自交通运输部及中交集团公开资料。受访人物引文已标注具体出处来源。</p>
+  <h3>局限性说明</h3>
+  <p>部分精确降幅（如牧业运费"约腰斩"）因官方详细口径尚未完全公开；部分预测性数据（如 2030 年游客量目标）引自政府规划文件。南北疆 GDP 差距比值基于 2023-2025 年官方统计公报计算，2025 年乌尉高速通车仅不足 1 个月，其经济影响尚需更长周期观察。</p>
+</section>
+
+<script>
+/* ================================================
+   穿越天山 - Script
+   Web Audio soundscape + Scroll interactions + ECharts
+   ================================================ */
+(function(){
+'use strict';
+
+/* ========== ECHARTS CDN LOAD ========== */
+function loadScript(src,cb){
+  const s=document.createElement('script');
+  s.src=src;s.async=true;
+  s.onload=cb;s.onerror=cb;
+  document.head.appendChild(s);
+}
+
+/* ========== AUDIO ENGINE ========== */
+let audioCtx,masterGain,analyser,noiseBuffer;
+let buses={};
+let currentAct=-1;
+let audioReady=false;
+let muted=false;
+
+const actTargets=[
+  {wind:0.55,windHowl:0.35,gust:0.30},       // 01 危途 - 暴风雪：强风+呼啸+阵风
+  {tbm:0.46},                                  // 02 凿穿
+  {highway:0.38,voices:0.30,chatter:0.25,honk:0.15}, // 03 坦途 - 公路+人声+聊天+喇叭
+  {crowd:0.22,vendor:0.38,market:0.12},       // 04 繁荣 - 明快巴扎
+  {melody:0.22}                                 // 05 未来 - 轻快旋律
+];
+const actColors=['#E2693F','#E0A23D','#4FC3C0','#E0628A','#9AA5B1'];
+const actNames=['危途','凿穿','坦途','繁荣','未来'];
+
+function makeNoiseSource(){
+  const src=audioCtx.createBufferSource();
+  src.buffer=noiseBuffer;src.loop=true;src.start();
+  return src;
+}
+
+function initAudio(){
+  if(audioReady) return;
+  audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+  masterGain=audioCtx.createGain();
+  masterGain.gain.value=0.85;
+  analyser=audioCtx.createAnalyser();
+  analyser.fftSize=64;
+  masterGain.connect(analyser);
+  masterGain.connect(audioCtx.destination);
+
+  const len=audioCtx.sampleRate*2;
+  noiseBuffer=audioCtx.createBuffer(1,len,audioCtx.sampleRate);
+  const d=noiseBuffer.getChannelData(0);
+  for(let i=0;i<len;i++) d[i]=Math.random()*2-1;
+
+  /* ========== ACT 01: 暴风雪 ========== */
+  // Layer 1: Deep rumbling wind
+  const windSrc=makeNoiseSource();
+  const windFilter=audioCtx.createBiquadFilter();
+  windFilter.type='lowpass';windFilter.frequency.value=420;windFilter.Q.value=0.7;
+  const windLFO=audioCtx.createOscillator();windLFO.frequency.value=0.12;
+  const windLFOGain=audioCtx.createGain();windLFOGain.gain.value=280;
+  windLFO.connect(windLFOGain).connect(windFilter.frequency);windLFO.start();
+  const windBus=audioCtx.createGain();windBus.gain.value=0;
+  windSrc.connect(windFilter).connect(windBus);
+
+  // Layer 2: High howling wind
+  const windHowlSrc=makeNoiseSource();
+  const windHowlFilter=audioCtx.createBiquadFilter();
+  windHowlFilter.type='bandpass';windHowlFilter.frequency.value=1800;windHowlFilter.Q.value=1.2;
+  const windHowlLFO=audioCtx.createOscillator();windHowlLFO.frequency.value=0.07;
+  const windHowlLFOGain=audioCtx.createGain();windHowlLFOGain.gain.value=700;
+  windHowlLFO.connect(windHowlLFOGain).connect(windHowlFilter.frequency);windHowlLFO.start();
+  // Extra howl wobble
+  const windHowlLFO2=audioCtx.createOscillator();windHowlLFO2.frequency.value=0.22;
+  const windHowlLFOGain2=audioCtx.createGain();windHowlLFOGain2.gain.value=400;
+  windHowlLFO2.connect(windHowlLFOGain2).connect(windHowlFilter.frequency);windHowlLFO2.start();
+  const windHowlBus=audioCtx.createGain();windHowlBus.gain.value=0;
+  windHowlSrc.connect(windHowlFilter).connect(windHowlBus);
+
+  // Layer 3: Gusts (random bursts of louder wind)
+  const gustSrc=makeNoiseSource();
+  const gustFilter=audioCtx.createBiquadFilter();
+  gustFilter.type='bandpass';gustFilter.frequency.value=1100;gustFilter.Q.value=0.5;
+  const gustLFO=audioCtx.createOscillator();gustLFO.frequency.value=0.35;
+  const gustLFOGain=audioCtx.createGain();gustLFOGain.gain.value=500;
+  gustLFO.connect(gustLFOGain).connect(gustFilter.frequency);gustLFO.start();
+  const gustBus=audioCtx.createGain();gustBus.gain.value=0;
+  gustSrc.connect(gustFilter).connect(gustBus);
+
+  windBus.connect(masterGain);
+  windHowlBus.connect(masterGain);
+  gustBus.connect(masterGain);
+  buses.wind=windBus;buses.windHowl=windHowlBus;buses.gust=gustBus;
+
+  /* ========== ACT 02: TBM 掘进 (keep existing) ========== */
+  const tbmSrc=makeNoiseSource();
+  const tbmFilter=audioCtx.createBiquadFilter();tbmFilter.type='lowpass';tbmFilter.frequency.value=190;
+  const tbmOsc=audioCtx.createOscillator();tbmOsc.type='sawtooth';tbmOsc.frequency.value=38;
+  const tbmTremolo=audioCtx.createGain();tbmTremolo.gain.value=0.8;
+  const tbmPulse=audioCtx.createOscillator();tbmPulse.type='sine';tbmPulse.frequency.value=2.3;
+  const tbmPulseDepth=audioCtx.createGain();tbmPulseDepth.gain.value=0.16;
+  tbmPulse.connect(tbmPulseDepth).connect(tbmTremolo.gain);tbmPulse.start();
+  const tbmBus=audioCtx.createGain();tbmBus.gain.value=0;
+  tbmSrc.connect(tbmFilter).connect(tbmTremolo).connect(tbmBus).connect(masterGain);
+  tbmOsc.connect(tbmTremolo);tbmOsc.start();
+  buses.tbm=tbmBus;
+
+  /* ========== ACT 03: 坦途 - 公路驾驶 + 人声 ========== */
+  // Highway engine
+  const hwOsc=audioCtx.createOscillator();hwOsc.type='sawtooth';hwOsc.frequency.value=62;
+  const hwFilter=audioCtx.createBiquadFilter();hwFilter.type='lowpass';hwFilter.frequency.value=340;
+  const hwBus=audioCtx.createGain();hwBus.gain.value=0;
+  hwOsc.connect(hwFilter).connect(hwBus).connect(masterGain);hwOsc.start();
+  buses.highway=hwBus;
+  // Voices formant (vowel-like "ah" crowd murmur)
+  const vOsc1=audioCtx.createOscillator();vOsc1.type='sawtooth';vOsc1.frequency.value=130;
+  const vFilt1=audioCtx.createBiquadFilter();vFilt1.type='bandpass';vFilt1.frequency.value=700;vFilt1.Q.value=6;
+  const vBus=audioCtx.createGain();vBus.gain.value=0;
+  vOsc1.connect(vFilt1).connect(vBus).connect(masterGain);vOsc1.start();
+  // Add second formant for richness
+  const vOsc2=audioCtx.createOscillator();vOsc2.type='sawtooth';vOsc2.frequency.value=145;
+  const vFilt2=audioCtx.createBiquadFilter();vFilt2.type='bandpass';vFilt2.frequency.value=1200;vFilt2.Q.value=5;
+  vOsc2.connect(vFilt2).connect(vBus);vOsc2.start();
+  // Volume wobble to simulate multiple people talking
+  const vLFO=audioCtx.createOscillator();vLFO.frequency.value=2.1;
+  const vLFOGain=audioCtx.createGain();vLFOGain.gain.value=0.12;
+  vLFO.connect(vLFOGain).connect(vBus.gain);vLFO.start();
+  buses.voices=vBus;
+  // Chatter (babble-like noise bursts)
+  const chatSrc=makeNoiseSource();
+  const chatFilter=audioCtx.createBiquadFilter();chatFilter.type='bandpass';chatFilter.frequency.value=1800;chatFilter.Q.value=2.5;
+  const chatBus=audioCtx.createGain();chatBus.gain.value=0;
+  chatSrc.connect(chatFilter).connect(chatBus).connect(masterGain);
+  buses.chatter=chatBus;
+  // Occasional honk
+  const honkOsc=audioCtx.createOscillator();honkOsc.type='sawtooth';honkOsc.frequency.value=320;
+  const honkFilter=audioCtx.createBiquadFilter();honkFilter.type='lowpass';honkFilter.frequency.value=900;
+  const honkBus=audioCtx.createGain();honkBus.gain.value=0;
+  honkOsc.connect(honkFilter).connect(honkBus).connect(masterGain);honkOsc.start();
+  buses.honk=honkBus;
+
+  /* ========== ACT 04: 繁荣 - 明快巴扎氛围 ========== */
+  // Warm bright pad (lighter than sawtooth, uses triangle)
+  const bzPad1=audioCtx.createOscillator();bzPad1.type='triangle';bzPad1.frequency.value=196; // G3
+  const bzPad2=audioCtx.createOscillator();bzPad2.type='triangle';bzPad2.frequency.value=247; // B3
+  const bzPad3=audioCtx.createOscillator();bzPad3.type='sine';bzPad3.frequency.value=294; // D4
+  const bzPadBus=audioCtx.createGain();bzPadBus.gain.value=0;
+  bzPad1.connect(bzPadBus).connect(masterGain);bzPad1.start();
+  bzPad2.connect(bzPadBus);bzPad2.start();
+  bzPad3.connect(bzPadBus);bzPad3.start();
+  // Gentle pad volume wobble for organic feel
+  const bzLFO=audioCtx.createOscillator();bzLFO.frequency.value=0.3;
+  const bzLFOG=audioCtx.createGain();bzLFOG.gain.value=0.03;
+  bzLFO.connect(bzLFOG).connect(bzPadBus.gain);bzLFO.start();
+  buses.crowd=bzPadBus;
+
+  // Bright bazaar chimes (sine pentatonic, random timing)
+  const bzChimeBus=audioCtx.createGain();bzChimeBus.gain.value=0;
+  bzChimeBus.connect(masterGain);
+  const chimeScale=[523.3,587.3,659.3,784,880,1047,1175,1319]; // C5 pentatonic+
+  function playChime(){
+    if(!audioReady) return;
+    const freq=chimeScale[Math.floor(Math.random()*chimeScale.length)];
+    const now=audioCtx.currentTime;
+    const o=audioCtx.createOscillator();o.type='sine';o.frequency.value=freq;
+    const g=audioCtx.createGain();
+    g.gain.setValueAtTime(.001,now);
+    g.gain.linearRampToValueAtTime(0.08+Math.random()*0.06,now+0.02);
+    g.gain.exponentialRampToValueAtTime(.001,now+0.5+Math.random()*0.4);
+    o.connect(g).connect(bzChimeBus);o.start(now);o.stop(now+1.2);
+    // Occasionally add a harmonic
+    if(Math.random()<0.3){
+      const o2=audioCtx.createOscillator();o2.type='sine';o2.frequency.value=freq*2;
+      const g2=audioCtx.createGain();
+      g2.gain.setValueAtTime(.001,now);
+      g2.gain.linearRampToValueAtTime(0.03,now+0.02);
+      g2.gain.exponentialRampToValueAtTime(.001,now+0.3);
+      o2.connect(g2).connect(bzChimeBus);o2.start(now);o2.stop(now+0.5);
+    }
+  }
+  // Chime timing: random interval 300-900ms
+  function scheduleChime(){
+    playChime();
+    const next=300+Math.random()*600;
+    bzChimeTimer=setTimeout(scheduleChime,next);
+  }
+  let bzChimeTimer=null;
+  buses.vendor=bzChimeBus;
+  // Start chimes immediately (they'll be gated by bus gain)
+  scheduleChime();
+
+  // Light chatter/presence noise (high-pass, bright)
+  const bzNoiseSrc=makeNoiseSource();
+  const bzNoiseFilt=audioCtx.createBiquadFilter();
+  bzNoiseFilt.type='highpass';bzNoiseFilt.frequency.value=1200;
+  const bzNoiseBus=audioCtx.createGain();bzNoiseBus.gain.value=0;
+  bzNoiseSrc.connect(bzNoiseFilt).connect(bzNoiseBus).connect(masterGain);
+  buses.market=bzNoiseBus;
+
+  /* ========== ACT 05: 未来 - 中国风轻音乐 ========== */
+  // Chinese pentatonic: C4 D4 E4 G4 A4 C5 D5 E5 G5 A5
+  // A minor pentatonic for slightly more emotional feel: A C D E G
+  const melodyPool=[440.0,523.3,587.3,659.3,784.0, 880.0,1047,1175,1319,1568];
+  const melodyGain=audioCtx.createGain();melodyGain.gain.value=0;
+
+  // Warm pad - Am chord (A2 C3 E3)
+  const padOsc1=audioCtx.createOscillator();padOsc1.type='sine';padOsc1.frequency.value=110;
+  const padOsc2=audioCtx.createOscillator();padOsc2.type='sine';padOsc2.frequency.value=130.8;
+  const padOsc3=audioCtx.createOscillator();padOsc3.type='sine';padOsc3.frequency.value=164.8;
+  // Slight detune for warmth
+  const padOsc1b=audioCtx.createOscillator();padOsc1b.type='sine';padOsc1b.frequency.value=110.3;
+  const padOsc2b=audioCtx.createOscillator();padOsc2b.type='sine';padOsc2b.frequency.value=131.1;
+  const padFilter=audioCtx.createBiquadFilter();padFilter.type='lowpass';padFilter.frequency.value=800;
+  // Slow pad swell
+  const padLFO=audioCtx.createOscillator();padLFO.frequency.value=0.15;
+  const padLFOGain=audioCtx.createGain();padLFOGain.gain.value=150;
+  padLFO.connect(padLFOGain).connect(padFilter.frequency);padLFO.start();
+  const padBus=audioCtx.createGain();padBus.gain.value=0.22;
+  padOsc1.connect(padFilter);padOsc2.connect(padFilter);padOsc3.connect(padFilter);
+  padOsc1b.connect(padFilter);padOsc2b.connect(padFilter);
+  padFilter.connect(padBus).connect(melodyGain).connect(masterGain);
+  padOsc1.start();padOsc2.start();padOsc3.start();
+  padOsc1b.start();padOsc2b.start();
+
+  // High shimmer - soft triangle octave
+  const shimOsc=audioCtx.createOscillator();shimOsc.type='triangle';shimOsc.frequency.value=440;
+  const shimFilter=audioCtx.createBiquadFilter();shimFilter.type='lowpass';shimFilter.frequency.value=900;
+  const shimBus=audioCtx.createGain();shimBus.gain.value=0.06;
+  const shimLFO=audioCtx.createOscillator();shimLFO.frequency.value=0.08;
+  const shimLFOGain=audioCtx.createGain();shimLFOGain.gain.value=80;
+  shimLFO.connect(shimLFOGain).connect(shimFilter.frequency);shimLFO.start();
+  shimOsc.connect(shimFilter).connect(shimBus).connect(melodyGain);shimOsc.start();
+
+  // Melody sequencer - arpeggiated with variable rhythm
+  let melodyInterval=null;
+  let melodyStarted=false;
+  function startMelody(){
+    if(melodyStarted) return;
+    melodyStarted=true;
+    let idx=0;
+    // Patterns: [noteIndex, durationMs, velocity]
+    const pattern=[
+      [0,380,0.14],[2,280,0.11],[4,500,0.16],[3,320,0.12],
+      [5,600,0.18],[4,300,0.13],[2,400,0.14],[0,350,0.11],
+      [3,450,0.15],[5,280,0.12],[7,550,0.16],[5,350,0.13],
+      [4,400,0.14],[2,300,0.11],[0,500,0.15],[3,380,0.12],
+      [6,450,0.16],[4,320,0.13],[2,400,0.14],[0,600,0.18]
+    ];
+    let patIdx=0;
+    function playNote(){
+      const p=pattern[patIdx%pattern.length];
+      const freq=melodyPool[p[0]%melodyPool.length];
+      const dur=p[1]/1000;
+      const vel=p[2];
+      const now=audioCtx.currentTime;
+      // Main tone
+      const o=audioCtx.createOscillator();o.type='triangle';o.frequency.value=freq;
+      const g=audioCtx.createGain();
+      g.gain.setValueAtTime(0.001,now);
+      g.gain.linearRampToValueAtTime(vel,now+0.05);
+      g.gain.setValueAtTime(vel*0.8,now+dur*0.4);
+      g.gain.exponentialRampToValueAtTime(0.001,now+dur*0.95);
+      o.connect(g).connect(melodyGain);
+      o.start(now);o.stop(now+dur);
+      // Soft overtone
+      const o2=audioCtx.createOscillator();o2.type='sine';o2.frequency.value=freq*2;
+      const g2=audioCtx.createGain();
+      g2.gain.setValueAtTime(0.001,now);
+      g2.gain.linearRampToValueAtTime(vel*0.3,now+0.05);
+      g2.gain.exponentialRampToValueAtTime(0.001,now+dur*0.7);
+      o2.connect(g2).connect(melodyGain);
+      o2.start(now);o2.stop(now+dur);
+      patIdx++;
+    }
+    playNote();
+    let time=pattern[0][1];
+    function scheduleNext(){
+      if(!melodyStarted) return;
+      playNote();
+      const p=pattern[patIdx%pattern.length];
+      melodyInterval=setTimeout(scheduleNext,p[1]);
+    }
+    melodyInterval=setTimeout(scheduleNext,pattern[0][1]);
+  }
+  function stopMelody(){
+    melodyStarted=false;
+    if(melodyInterval){clearTimeout(melodyInterval);melodyInterval=null;}
+  }
+  // Override setActiveAct to handle melody start/stop
+  const _origSetActiveAct=setActiveAct;
+  setActiveAct=function(i){
+    _origSetActiveAct(i);
+    if(i===4) startMelody();
+    else stopMelody();
+  };
+  buses.melody=melodyGain;
+
+  audioReady=true;
+}
+
+function setActiveAct(i){
+  if(!audioReady) return;
+  const targets=actTargets[i]||{};
+  Object.keys(buses).forEach(k=>{
+    const g=buses[k];
+    const target=targets[k]!==undefined?targets[k]:0;
+    const now=audioCtx.currentTime;
+    g.gain.cancelScheduledValues(now);
+    g.gain.setValueAtTime(g.gain.value,now);
+    g.gain.linearRampToValueAtTime(target,now+1.8);
+  });
+}
+
+/* ---- Interactive looped soundscapes (button-triggered) ---- */
+let interactiveNodes=null;
+let interactiveTimers=[];
+let activeInteractiveBtn=null;
+
+function clearInteractiveTimers(){
+  interactiveTimers.forEach(id=>clearInterval(id));
+  interactiveTimers=[];
+}
+
+function stopInteractive(){
+  if(interactiveNodes){
+    const now=audioCtx.currentTime;
+    interactiveNodes.gain.gain.cancelScheduledValues(now);
+    interactiveNodes.gain.gain.setValueAtTime(interactiveNodes.gain.gain.value,now);
+    interactiveNodes.gain.gain.linearRampToValueAtTime(0,now+0.6);
+    const toStop=interactiveNodes;
+    setTimeout(()=>{try{toStop.stopAll();}catch(e){}},700);
+    interactiveNodes=null;
+  }
+  clearInteractiveTimers();
+  if(activeInteractiveBtn){
+    activeInteractiveBtn.classList.remove('playing');
+    activeInteractiveBtn=null;
+  }
+}
+
+function playInteractive(type,btn){
+  if(!audioReady) return;
+  if(activeInteractiveBtn===btn){stopInteractive();return;}
+  stopInteractive();
+  const now=audioCtx.currentTime;
+  const out=audioCtx.createGain();out.gain.value=0;
+  out.connect(masterGain);
+  out.gain.linearRampToValueAtTime(0.8,now+0.5);
+  const localOsc=[];const localSrc=[];
+
+  function bell(time,freq){
+    const o=audioCtx.createOscillator();o.type='sine';o.frequency.value=freq;
+    const g=audioCtx.createGain();
+    g.gain.setValueAtTime(0,time);
+    g.gain.linearRampToValueAtTime(0.18,time+0.02);
+    g.gain.exponentialRampToValueAtTime(0.001,time+0.5);
+    o.connect(g).connect(out);o.start(time);o.stop(time+0.55);
+  }
+  function honk(time,freq,dur,vol){
+    const o=audioCtx.createOscillator();o.type='sawtooth';o.frequency.value=freq;
+    const f=audioCtx.createBiquadFilter();f.type='lowpass';f.frequency.value=900;
+    const g=audioCtx.createGain();
+    g.gain.setValueAtTime(0,time);
+    g.gain.linearRampToValueAtTime(vol,time+0.05);
+    g.gain.exponentialRampToValueAtTime(0.001,time+dur);
+    o.connect(f).connect(g).connect(out);o.start(time);o.stop(time+dur+0.05);
+  }
+  function chatterBurst(time,dur,freqBase){
+    const src=audioCtx.createBufferSource();src.buffer=noiseBuffer;
+    const f=audioCtx.createBiquadFilter();f.type='bandpass';f.frequency.value=freqBase;f.Q.value=4;
+    const g=audioCtx.createGain();
+    g.gain.setValueAtTime(0,time);
+    g.gain.linearRampToValueAtTime(0.10,time+dur*0.3);
+    g.gain.linearRampToValueAtTime(0,time+dur);
+    src.connect(f).connect(g).connect(out);src.start(time);src.stop(time+dur+0.05);
+    localSrc.push(src);
+  }
+  function clank(time,vol){
+    const src=audioCtx.createBufferSource();src.buffer=noiseBuffer;
+    const f=audioCtx.createBiquadFilter();f.type='highpass';f.frequency.value=2200;
+    const g=audioCtx.createGain();
+    g.gain.setValueAtTime(vol,time);g.gain.exponentialRampToValueAtTime(0.001,time+0.18);
+    src.connect(f).connect(g).connect(out);src.start(time);src.stop(time+0.2);
+    localSrc.push(src);
+  }
+
+  let gainObj={gain:out.gain};
+  let stopAllFn=function(){
+    clearInteractiveTimers();
+    localOsc.forEach(o=>{try{o.stop();}catch(e){}});
+    localSrc.forEach(s=>{try{s.stop();}catch(e){}});
+    try{out.disconnect();}catch(e){}
+  };
+
+  if(type==='caravan'){
+    // Camel bells + wind
+    const bellId=setInterval(()=>{
+      bell(audioCtx.currentTime+0.05, 600+Math.random()*400);
+      if(Math.random()<0.3) bell(audioCtx.currentTime+0.15, 800+Math.random()*300);
+    },800);
+    interactiveTimers.push(bellId);
+  } else if(type==='tbm'){
+    // TBM drilling
+    const gSrc=makeNoiseSource();localSrc.push(gSrc);
+    const gF=audioCtx.createBiquadFilter();gF.type='lowpass';gF.frequency.value=200;
+    const gOsc=audioCtx.createOscillator();gOsc.type='sawtooth';gOsc.frequency.value=36;localOsc.push(gOsc);
+    const gTremolo=audioCtx.createGain();gTremolo.gain.value=0.85;
+    const gPulse=audioCtx.createOscillator();gPulse.frequency.value=2.6;localOsc.push(gPulse);
+    const gPulseDepth=audioCtx.createGain();gPulseDepth.gain.value=0.18;
+    gPulse.connect(gPulseDepth).connect(gTremolo.gain);gPulse.start();
+    gSrc.connect(gF).connect(gTremolo).connect(out);gOsc.connect(gTremolo);gOsc.start();
+    // Occasional blast
+    const blastId=setInterval(()=>{
+      if(Math.random()<0.15){
+        const bs=audioCtx.createBufferSource();bs.buffer=noiseBuffer;
+        const bf=audioCtx.createBiquadFilter();bf.type='lowpass';bf.frequency.value=220;
+        const bg=audioCtx.createGain();
+        const t=audioCtx.currentTime;
+        bg.gain.setValueAtTime(0.6,t);bg.gain.exponentialRampToValueAtTime(0.001,t+0.5);
+        bs.connect(bf).connect(bg).connect(out);bs.start(t);bs.stop(t+0.55);
+      }
+    },2000);
+    interactiveTimers.push(blastId);
+  } else if(type==='roadtrip'){
+    // Highway driving
+    const eOsc=audioCtx.createOscillator();eOsc.type='sawtooth';eOsc.frequency.value=58;localOsc.push(eOsc);
+    const eF=audioCtx.createBiquadFilter();eF.type='lowpass';eF.frequency.value=320;
+    const eG=audioCtx.createGain();eG.gain.value=0.35;
+    eOsc.connect(eF).connect(eG).connect(out);eOsc.start();
+    const chatId=setInterval(()=>{
+      chatterBurst(audioCtx.currentTime+0.05,0.4+Math.random()*0.3,1800+Math.random()*600);
+    },1100);
+    interactiveTimers.push(chatId);
+    const honkId=setInterval(()=>{
+      if(Math.random()<0.4) honk(audioCtx.currentTime+0.05,320,0.3,0.12);
+    },2600);
+    interactiveTimers.push(honkId);
+  } else if(type==='freight'){
+    // Freight truck
+    const tOsc=audioCtx.createOscillator();tOsc.type='sawtooth';tOsc.frequency.value=44;localOsc.push(tOsc);
+    const tF=audioCtx.createBiquadFilter();tF.type='lowpass';tF.frequency.value=240;
+    const tG=audioCtx.createGain();tG.gain.value=0.4;
+    tOsc.connect(tF).connect(tG).connect(out);tOsc.start();
+    const clankId=setInterval(()=>{
+      clank(audioCtx.currentTime+0.05,0.18+Math.random()*0.12);
+    },600);
+    interactiveTimers.push(clankId);
+  } else if(type==='market'){
+    // Market ambience
+    const mSrc=makeNoiseSource();localSrc.push(mSrc);
+    const mF=audioCtx.createBiquadFilter();mF.type='bandpass';mF.frequency.value=1100;mF.Q.value=0.5;
+    const mG=audioCtx.createGain();mG.gain.value=0.22;
+    const flutter=audioCtx.createOscillator();flutter.frequency.value=2.1;localOsc.push(flutter);
+    const flutterG=audioCtx.createGain();flutterG.gain.value=0.07;
+    flutter.connect(flutterG).connect(mG.gain);flutter.start();
+    mSrc.connect(mF).connect(mG).connect(out);
+    const accentId=setInterval(()=>{
+      chatterBurst(audioCtx.currentTime+0.05,0.3,2400+Math.random()*800);
+    },850);
+    interactiveTimers.push(accentId);
+  } else if(type==='future'){
+    // Uplifting pentatonic melody - "路还在延伸"
+    const scale=[440,523.3,587.3,659.3,784,880,1047,1175];
+    const pattern=[
+      [0,320,.16],[2,240,.13],[4,400,.18],[3,280,.14],
+      [5,480,.20],[4,240,.15],[2,360,.16],[0,300,.13],
+      [3,400,.17],[5,260,.14],[7,440,.19],[5,320,.15],
+      [4,360,.16],[2,280,.13],[0,420,.18],[3,300,.14],
+      [6,400,.18],[4,280,.14],[2,360,.16],[0,500,.20]
+    ];
+    let pi=0;
+    function playMelodyNote(){
+      if(!interactiveNodes) return;
+      const p=pattern[pi%pattern.length];
+      const freq=scale[p[0]%scale.length];
+      const dur=p[1]/1000;const vel=p[2];
+      const now=audioCtx.currentTime;
+      const o=audioCtx.createOscillator();o.type='triangle';o.frequency.value=freq;
+      const g=audioCtx.createGain();
+      g.gain.setValueAtTime(.001,now);g.gain.linearRampToValueAtTime(vel,now+.04);
+      g.gain.setValueAtTime(vel*.8,now+dur*.4);g.gain.exponentialRampToValueAtTime(.001,now+dur*.95);
+      o.connect(g).connect(out);o.start(now);o.stop(now+dur);
+      const o2=audioCtx.createOscillator();o2.type='sine';o2.frequency.value=freq*2;
+      const g2=audioCtx.createGain();
+      g2.gain.setValueAtTime(.001,now);g2.gain.linearRampToValueAtTime(vel*.25,now+.04);
+      g2.gain.exponentialRampToValueAtTime(.001,now+dur*.65);
+      o2.connect(g2).connect(out);o2.start(now);o2.stop(now+dur);
+      pi++;
+    }
+    playMelodyNote();
+    const melId=setTimeout(function sched(){
+      if(!interactiveNodes) return;
+      playMelodyNote();
+      const nxt=pattern[pi%pattern.length];
+      interactiveTimers.push(setTimeout(sched,nxt[1]));
+    },pattern[0][1]);
+    interactiveTimers.push(melId);
+  }
+
+  interactiveNodes={gain:gainObj,stopAll:stopAllFn};
+  activeInteractiveBtn=btn;
+  btn.classList.add('playing');
+}
+
+/* ---- Audio Meter ---- */
+function drawMeter(){
+  const canvas=document.getElementById('meter');
+  if(!canvas||!analyser) return;
+  const ctx=canvas.getContext('2d');
+  const bufLen=analyser.frequencyBinCount;
+  const data=new Uint8Array(bufLen);
+  analyser.getByteFrequencyData(data);
+  ctx.clearRect(0,0,80,28);
+  const barW=3,gap=2;
+  const bars=Math.min(bufLen,12);
+  for(let i=0;i<bars;i++){
+    const v=data[i]/255;
+    const h=Math.max(1,v*24);
+    const x=i*(barW+gap);
+    ctx.fillStyle=actColors[currentAct]||'#eae8e4';
+    ctx.globalAlpha=0.3+v*0.7;
+    ctx.fillRect(x,28-h,barW,h);
+  }
+  ctx.globalAlpha=1;
+  requestAnimationFrame(drawMeter);
+}
+
+/* ========== SCROLL / INTERSECTION ========== */
+const actSections=document.querySelectorAll('.act-section');
+const dotLinks=document.querySelectorAll('.dot-nav a');
+const summaryEl=document.getElementById('chapter-summary');
+const summaryLabel=summaryEl.querySelector('.summary-label');
+const summaryText=summaryEl.querySelector('.summary-text');
+const progressBar=document.getElementById('progress-bar');
+const actLabel=document.getElementById('current-act-label');
+
+const chapterSummaries=[
+  '海拔4280米胜利达坂，南北疆唯一翻越通道，7小时漫长旅途',
+  '22.13公里世界最长高速公路隧道，52个月凿穿天山',
+  '从7小时到3.5小时，距离被重新定义',
+  '通车后文旅消费增长36.4%，南北疆经济加速融合',
+  '2025年新疆接待游客3.23亿人次，路还在继续延伸'
+];
+
+function updateUI(actIndex){
+  // Stop interactive sounds when leaving their section
+  if(interactiveNodes && activeInteractiveBtn){
+    const btnSound=activeInteractiveBtn.dataset.sound;
+    const actSounds=['caravan','tbm','roadtrip','freight','market','future'];
+    const soundActMap={caravan:0,tbm:1,roadtrip:2,freight:3,market:3,future:4};
+    const soundBelongsTo=soundActMap[btnSound];
+    if(soundBelongsTo!==undefined && actIndex!==soundBelongsTo){
+      stopInteractive();
+    }
+  }
+  // Dot nav
+  dotLinks.forEach((link,i)=>{
+    link.classList.remove('active','passed');
+    if(i===actIndex) link.classList.add('active');
+    else if(i<actIndex) link.classList.add('passed');
+  });
+  // Progress line
+  const dots=[...dotLinks];
+  if(dots[actIndex]){
+    const rect=dots[actIndex].getBoundingClientRect();
+    const navRect=document.getElementById('dot-nav').getBoundingClientRect();
+    const h=rect.top-navRect.top+rect.height/2;
+    document.getElementById('dot-nav-progress').style.height=h+'px';
+  }
+  // Act label
+  actLabel.textContent=actNames[actIndex]||'——';
+  actLabel.style.color=actColors[actIndex]||'#eae8e4';
+  // Chapter summary
+  summaryEl.style.setProperty('--act-color',actColors[actIndex]||'#eae8e4');
+  summaryLabel.textContent='ACT 0'+(actIndex+1)+' · '+actNames[actIndex];
+  summaryText.textContent=chapterSummaries[actIndex]||'';
+  summaryEl.classList.add('visible');
+  // Progress bar color
+  progressBar.style.background=actColors[actIndex]||'#eae8e4';
+  // Audio
+  if(actIndex!==currentAct){
+    currentAct=actIndex;
+    setActiveAct(actIndex);
+    // One-shot effects
+    if(actIndex===2) playOneShot('skid');
+    if(actIndex===1) setTimeout(()=>playOneShot('blast'),600);
+    if(actIndex===3) setTimeout(()=>playOneShot('sparkle'),800);
+  }
+}
+
+function playOneShot(type){
+  if(!audioReady) return;
+  const now=audioCtx.currentTime;
+  if(type==='skid'){
+    const src=audioCtx.createBufferSource();src.buffer=noiseBuffer;
+    const filt=audioCtx.createBiquadFilter();filt.type='highpass';
+    filt.frequency.setValueAtTime(3200,now);
+    filt.frequency.exponentialRampToValueAtTime(500,now+0.35);
+    const g=audioCtx.createGain();
+    g.gain.setValueAtTime(0.45,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.4);
+    src.connect(filt).connect(g).connect(masterGain);
+    src.start(now);src.stop(now+0.45);
+  }else if(type==='blast'){
+    const src=audioCtx.createBufferSource();src.buffer=noiseBuffer;
+    const filt=audioCtx.createBiquadFilter();filt.type='lowpass';filt.frequency.value=220;
+    const g=audioCtx.createGain();
+    g.gain.setValueAtTime(0.6,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.5);
+    src.connect(filt).connect(g).connect(masterGain);
+    src.start(now);src.stop(now+0.55);
+    const osc=audioCtx.createOscillator();osc.type='sine';
+    osc.frequency.setValueAtTime(70,now);osc.frequency.exponentialRampToValueAtTime(34,now+0.3);
+    const og=audioCtx.createGain();
+    og.gain.setValueAtTime(0.55,now);og.gain.exponentialRampToValueAtTime(0.001,now+0.4);
+    osc.connect(og).connect(masterGain);
+    osc.start(now);osc.stop(now+0.45);
+  }else if(type==='cheer'){
+    const src=audioCtx.createBufferSource();src.buffer=noiseBuffer;
+    const filt=audioCtx.createBiquadFilter();filt.type='bandpass';filt.frequency.value=1500;filt.Q.value=0.6;
+    const g=audioCtx.createGain();
+    g.gain.setValueAtTime(0.0,now);
+    g.gain.linearRampToValueAtTime(0.32,now+0.3);
+    g.gain.linearRampToValueAtTime(0.0,now+2.0);
+    src.connect(filt).connect(g).connect(masterGain);
+    src.start(now);src.stop(now+2.1);
+  }else if(type==='sparkle'){
+    // Bright ascending chime burst (bazaar entry)
+    const freqs=[784,880,1047,1175,1319,1568];
+    freqs.forEach((f,i)=>{
+      const o=audioCtx.createOscillator();o.type='sine';o.frequency.value=f;
+      const g=audioCtx.createGain();
+      const t=now+i*0.06;
+      g.gain.setValueAtTime(.001,t);
+      g.gain.linearRampToValueAtTime(0.12,t+0.02);
+      g.gain.exponentialRampToValueAtTime(.001,t+0.35);
+      o.connect(g).connect(masterGain);o.start(t);o.stop(t+0.4);
+    });
+  }else if(type==='ding'){
+    const osc=audioCtx.createOscillator();osc.type='triangle';osc.frequency.value=880;
+    const g=audioCtx.createGain();
+    g.gain.setValueAtTime(0.22,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.5);
+    osc.connect(g).connect(masterGain);
+    osc.start(now);osc.stop(now+0.55);
+  }
+}
+
+/* ---- Intersection Observer ---- */
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const idx=parseInt(entry.target.dataset.actIndex);
+      if(!isNaN(idx)) updateUI(idx);
+    }
+  });
+},{threshold:0.15});
+
+actSections.forEach(s=>observer.observe(s));
+
+/* ---- Transition reveal ---- */
+const transEls=document.querySelectorAll('.act-transition');
+const transObs=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+      // Trigger UI update for the NEXT act when transition appears
+      const tIdx=parseInt(entry.target.dataset.transition);
+      if(!isNaN(tIdx)) updateUI(tIdx);
+    }
+  });
+},{threshold:0.3});
+transEls.forEach(t=>transObs.observe(t));
+
+/* ---- Station staggered reveal (Act 3) ---- */
+const stationObs=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const items=entry.target.querySelectorAll('.station-item');
+      items.forEach((item,i)=>{
+        setTimeout(()=>item.classList.add('visible'),i*120);
+      });
+      stationObs.unobserve(entry.target);
+    }
+  });
+},{threshold:0.25});
+const stationEl=document.getElementById('route-stations');
+if(stationEl) stationObs.observe(stationEl);
+
+/* ---- Tourism compare slider (Act 5) ---- */
+const slider=document.getElementById('tourism-slider');
+if(slider){
+  const data=[
+    {year:2015,val:0.61,spend:'—',growth:'—'},
+    {year:2019,val:2.13,spend:'—',growth:'—'},
+    {year:2020,val:1.58,spend:'—',growth:'-25.8%'},
+    {year:2023,val:2.65,spend:'2872 亿元',growth:'+117.7%'},
+    {year:2025,val:3.23,spend:'3700 亿元',growth:'+8.0%'}
+  ];
+  const bar2025=document.querySelector('.compare-2025');
+  const growthEl=document.getElementById('compare-growth');
+  const spendEl=document.getElementById('cs-spend');
+  const growthRateEl=document.getElementById('cs-growth');
+
+  function updateCompare(pct){
+    const idx=Math.round((pct/100)*(data.length-1));
+    const d=data[idx];
+    const barW=Math.max(5,(d.val/3.23)*100);
+    bar2025.style.width=barW+'%';
+    bar2025.querySelector('span').textContent=d.val+' 亿';
+    const mult=(d.val/0.61).toFixed(1);
+    growthEl.innerHTML='增长 <strong>'+mult+' 倍</strong>（'+d.year+'年）';
+    spendEl.textContent=d.spend+'（'+d.year+'）';
+    growthRateEl.textContent=d.growth;
+  }
+  slider.addEventListener('input',function(){updateCompare(parseInt(this.value));});
+}
+
+/* ---- Scroll progress ---- */
+function updateProgress(){
+  const scrollTop=window.scrollY;
+  const docHeight=document.documentElement.scrollHeight-window.innerHeight;
+  const pct=Math.min((scrollTop/docHeight)*100,100);
+  progressBar.style.width=pct+'%';
+}
+
+/* ---- Big number counter ---- */
+function animateBigNums(){
+  document.querySelectorAll('.big-num').forEach(el=>{
+    // Skip dual-value elements (handled separately)
+    if(el.dataset.dual) return;
+    const target=parseFloat(el.dataset.target);
+    if(isNaN(target)) return;
+    const suffix=el.dataset.suffix||'';
+    const decimals=parseInt(el.dataset.decimals)||0;
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight*0.85&&rect.bottom>0&&!el.dataset.animated){
+      el.dataset.animated='1';
+      const duration=2000;
+      const start=performance.now();
+      function step(ts){
+        const p=Math.min((ts-start)/duration,1);
+        const ease=1-Math.pow(1-p,3);
+        const val=target*ease;
+        el.textContent=(decimals>0?val.toFixed(decimals):Math.round(val))+suffix;
+        if(p<1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+  });
+}
+
+/* ---- Dual big number counter (static prefix + animated suffix) ---- */
+function animateDualNums(){
+  document.querySelectorAll('.big-num[data-dual]').forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight*0.85&&rect.bottom>0&&!el.dataset.animated){
+      el.dataset.animated='1';
+      const staticText=el.dataset.dualStatic||'';
+      const target=parseFloat(el.dataset.dualTarget)||0;
+      const suffix=el.dataset.dualSuffix||'';
+      const decimals=parseInt(el.dataset.dualDecimals)||0;
+      const duration=2200;
+      const start=performance.now();
+      el.textContent=staticText+'0'+suffix;
+      function step(ts){
+        const p=Math.min((ts-start)/duration,1);
+        const ease=1-Math.pow(1-p,3);
+        const val=target*ease;
+        el.textContent=staticText+(decimals>0?val.toFixed(decimals):Math.round(val))+suffix;
+        if(p<1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+  });
+}
+
+/* ========== ECHARTS ========== */
+let echartsLoaded=false;
+let tourismChart=null,comparisonChart=null;
+
+function initCharts(){
+  if(typeof echarts==='undefined') return;
+  // Tourism chart
+  const tourismEl=document.getElementById('echart-tourism');
+  if(tourismEl&&!tourismChart){
+    tourismChart=echarts.init(tourismEl,null,{renderer:'canvas'});
+    tourismChart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'axis',backgroundColor:'rgba(10,22,40,.92)',borderColor:'rgba(255,255,255,.1)',textStyle:{color:'#eae8e4',fontSize:12}},
+      legend:{data:['游客接待量（亿人次）','旅游收入（亿元）'],top:12,right:16,textStyle:{color:'rgba(234,232,228,.5)',fontSize:11},itemWidth:14,itemHeight:3},
+      grid:{top:50,bottom:36,left:50,right:50},
+      xAxis:{type:'category',data:['2019','2020','2021','2022','2023','2024','2025'],
+        axisLine:{lineStyle:{color:'rgba(255,255,255,.08)'}},
+        axisLabel:{color:'rgba(234,232,228,.4)',fontSize:11},axisTick:{show:false}},
+      yAxis:[
+        {type:'value',name:'亿人次',nameTextStyle:{color:'rgba(234,232,228,.3)',fontSize:10},
+         axisLine:{show:false},axisLabel:{color:'rgba(234,232,228,.35)',fontSize:10},
+         splitLine:{lineStyle:{color:'rgba(255,255,255,.04)'}}},
+        {type:'value',name:'亿元',nameTextStyle:{color:'rgba(234,232,228,.3)',fontSize:10},
+         axisLine:{show:false},axisLabel:{color:'rgba(234,232,228,.35)',fontSize:10},
+         splitLine:{show:false}}
+      ],
+      series:[
+        {name:'游客接待量（亿人次）',type:'line',yAxisIndex:0,
+         data:[2.13,1.58,1.91,1.25,2.65,3.02,3.23],smooth:true,symbol:'circle',symbolSize:5,
+         lineStyle:{color:'#4FC3C0',width:2},itemStyle:{color:'#4FC3C0'},
+         areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(79,195,192,.25)'},{offset:1,color:'rgba(79,195,192,.02)'}])},
+         animationDuration:2000},
+        {name:'旅游收入（亿元）',type:'line',yAxisIndex:1,
+         data:[3632,1416,1917,960,2780,3200,3700],smooth:true,symbol:'diamond',symbolSize:5,
+         lineStyle:{color:'#E0628A',width:2},itemStyle:{color:'#E0628A'},
+         areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(224,98,138,.15)'},{offset:1,color:'rgba(224,98,138,.02)'}])},
+         animationDuration:2000,animationDelay:300}
+      ]
+    });
+  }
+  // Comparison chart
+  const compEl=document.getElementById('echart-comparison');
+  if(compEl&&!comparisonChart){
+    comparisonChart=echarts.init(compEl,null,{renderer:'canvas'});
+    comparisonChart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'axis',backgroundColor:'rgba(10,22,40,.92)',borderColor:'rgba(255,255,255,.1)',textStyle:{color:'#eae8e4',fontSize:12}},
+      legend:{data:['南疆','北疆'],top:12,textStyle:{color:'rgba(234,232,228,.5)',fontSize:11},itemWidth:14,itemHeight:10},
+      grid:{top:50,bottom:36,left:50,right:20},
+      xAxis:{type:'category',data:['2023','2024','2025'],
+        axisLine:{lineStyle:{color:'rgba(255,255,255,.08)'}},
+        axisLabel:{color:'rgba(234,232,228,.4)',fontSize:12},axisTick:{show:false}},
+      yAxis:{type:'value',axisLine:{show:false},axisLabel:{color:'rgba(234,232,228,.35)',fontSize:10},
+        splitLine:{lineStyle:{color:'rgba(255,255,255,.04)'}}},
+      series:[
+        {name:'南疆',type:'bar',barWidth:'30%',data:[5744,6128,6439],
+         itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#E0628A'},{offset:1,color:'rgba(224,98,138,.2)'}]),borderRadius:[3,3,0,0]},
+         animationDuration:1500},
+        {name:'北疆',type:'bar',barWidth:'30%',data:[11811,12681,13192],
+         itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#E0A23D'},{offset:1,color:'rgba(224,162,61,.2)'}]),borderRadius:[3,3,0,0]},
+         animationDuration:1500,animationDelay:200}
+      ]
+    });
+  }
+}
+
+function handleResize(){
+  if(tourismChart) tourismChart.resize();
+  if(comparisonChart) comparisonChart.resize();
+  // Mobile: increase chart font sizes
+  const isMobile=window.innerWidth<=768;
+  const fs=isMobile?13:11;
+  const fsLabel=isMobile?13:10;
+  if(tourismChart){
+    tourismChart.setOption({
+      tooltip:{textStyle:{fontSize:isMobile?14:12}},
+      legend:{textStyle:{fontSize:isMobile?13:11}},
+      xAxis:{axisLabel:{fontSize:isMobile?13:11}},
+      yAxis:[
+        {nameTextStyle:{fontSize:isMobile?12:10},axisLabel:{fontSize:isMobile?12:10}},
+        {nameTextStyle:{fontSize:isMobile?12:10},axisLabel:{fontSize:isMobile?12:10}}
+      ]
+    });
+  }
+  if(comparisonChart){
+    comparisonChart.setOption({
+      tooltip:{textStyle:{fontSize:isMobile?14:12}},
+      legend:{textStyle:{fontSize:isMobile?13:11}},
+      xAxis:{axisLabel:{fontSize:isMobile?14:12}},
+      yAxis:{axisLabel:{fontSize:isMobile?12:10}}
+    });
+  }
+}
+
+/* ========== INIT ========== */
+document.addEventListener('DOMContentLoaded',function(){
+  // Load ECharts
+  loadScript('https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js',function(){
+    echartsLoaded=true;
+    initCharts();
+  });
+
+  // Start button
+  document.getElementById('start-btn').addEventListener('click',function(){
+    initAudio();
+    document.getElementById('start-overlay').classList.add('hidden');
+    document.getElementById('control-bar').style.opacity='1';
+    drawMeter();
+    // Force-activate Act 1 (first visible section)
+    currentAct=-1; // reset so setActiveAct fires
+    updateUI(0);
+    // Init charts after a short delay for layout
+    setTimeout(initCharts,500);
+    // Clear all animated flags so numbers animate fresh on scroll
+    document.querySelectorAll('.big-num').forEach(el=>{delete el.dataset.animated;});
+    // Trigger initial number animation check
+    setTimeout(function(){animateBigNums();animateDualNums();},300);
+  });
+
+  // Mute button
+  document.getElementById('mute-btn').addEventListener('click',function(){
+    muted=!muted;
+    if(masterGain){
+      masterGain.gain.linearRampToValueAtTime(muted?0:0.85,audioCtx.currentTime+0.3);
+    }
+    this.textContent=muted?'🔇 已静音':'🔊 声音开启';
+  });
+
+  // Audio trigger buttons
+  document.querySelectorAll('.audio-trigger-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const type=this.dataset.sound;
+      if(type) playInteractive(type,this);
+    });
+  });
+
+  // Dot nav click
+  dotLinks.forEach(link=>{
+    link.addEventListener('click',function(e){
+      e.preventDefault();
+      const target=document.getElementById(this.getAttribute('href').slice(1));
+      if(target) target.scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  // Scroll
+  window.addEventListener('scroll',function(){
+    updateProgress();
+    animateBigNums();
+    animateDualNums();
+  },{passive:true});
+  window.addEventListener('resize',handleResize);
+
+  // Initial big num check
+  animateBigNums();
+  animateDualNums();
+});
+
+})();
+</script>
+</body>
+</html>
