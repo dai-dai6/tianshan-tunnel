@@ -38,7 +38,7 @@ img{max-width:100%;display:block;}
 #start-overlay{
   position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
   background:#0a1628;
-  background-image:url('assets/images/bg_hero.jpg');
+  background-image:url('assets/images/hero_tianshan.jpg');
   background-size:cover;background-position:center;
   transition:opacity .8s ease,visibility .8s ease;
 }
@@ -659,6 +659,32 @@ img{max-width:100%;display:block;}
 .compare-table tbody tr.active-row{background:rgba(92,184,130,.05);}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 
+/* ===== TRANSPORT FLIP CARDS ===== */
+.transport-cards{display:flex;gap:16px;margin:16px 0 24px;flex-wrap:wrap;}
+.transport-card{perspective:600px;cursor:pointer;width:100%;max-width:320px;}
+.transport-card .tc-front,.transport-card .tc-back{
+  border-radius:8px;padding:20px;backface-visibility:hidden;
+  transition:transform .5s ease;border:1px solid var(--border);
+}
+.transport-card .tc-front{
+  background:var(--bg-card);display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.transport-card .tc-back{
+  background:var(--bg-card);position:absolute;inset:0;transform:rotateY(180deg);
+  display:flex;flex-direction:column;justify-content:center;gap:12px;
+}
+.transport-card.flipped .tc-front{transform:rotateY(180deg);}
+.transport-card.flipped .tc-back{transform:rotateY(0deg);}
+.tc-icon{font-size:2rem;}
+.tc-label{font-size:15px;color:var(--ink);font-weight:500;}
+.tc-hint{font-size:12px;color:var(--ink-faint);}
+.tc-row{display:flex;align-items:center;gap:8px;font-size:14px;justify-content:space-between;}
+.tc-k{color:var(--ink-faint);min-width:40px;}
+.tc-before{color:var(--data-before);text-decoration:line-through;}
+.tc-arrow{color:var(--ink-dim);}
+.tc-after{color:var(--data-after);font-weight:600;}
+.transport-card{position:relative;}
+
 /* ===== SOUL QUOTE (全屏灵魂句收束) ===== */
 .soul-quote{
   min-height:80vh;display:flex;flex-direction:column;
@@ -678,8 +704,8 @@ img{max-width:100%;display:block;}
   letter-spacing:.04em;max-width:680px;
   position:relative;z-index:1;
 }
-.soul-quote .soul-text::before{content:'\201C';display:block;font-size:2em;color:var(--ink-dim);margin-bottom:8px;}
-.soul-quote .soul-text::after{content:'\201D';display:block;font-size:2em;color:var(--ink-dim);margin-top:8px;text-align:right;}
+.soul-quote .soul-text::before{content:'\300C';display:block;font-size:2em;color:var(--ink-dim);margin-bottom:8px;text-align:left;}
+.soul-quote .soul-text::after{content:'\300D';display:block;font-size:2em;color:var(--ink-dim);margin-top:8px;text-align:right;}
 .soul-quote .soul-author{
   margin-top:32px;font-size:14px;color:var(--ink-faint);
   letter-spacing:.06em;position:relative;z-index:1;

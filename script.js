@@ -346,12 +346,25 @@ function playInteractive(type,btn){
   const localOsc=[];const localSrc=[];
 
   function bell(time,freq){
-    const o=audioCtx.createOscillator();o.type='sine';o.frequency.value=freq;
-    const g=audioCtx.createGain();
-    g.gain.setValueAtTime(0,time);
-    g.gain.linearRampToValueAtTime(0.18,time+0.02);
-    g.gain.exponentialRampToValueAtTime(0.001,time+0.5);
-    o.connect(g).connect(out);o.start(time);o.stop(time+0.55);
+    // Camel bell: metallic clang with harmonics + fast attack + long ring
+    const o1=audioCtx.createOscillator();o1.type='triangle';o1.frequency.value=freq;
+    const o2=audioCtx.createOscillator();o2.type='sine';o2.frequency.value=freq*2.76; // inharmonic partial
+    const o3=audioCtx.createOscillator();o3.type='sine';o3.frequency.value=freq*5.4;  // high shimmer
+    const g1=audioCtx.createGain();
+    g1.gain.setValueAtTime(0,time);
+    g1.gain.linearRampToValueAtTime(0.15,time+0.005);
+    g1.gain.exponentialRampToValueAtTime(0.001,time+0.8+Math.random()*0.4);
+    const g2=audioCtx.createGain();
+    g2.gain.setValueAtTime(0,time);
+    g2.gain.linearRampToValueAtTime(0.06,time+0.003);
+    g2.gain.exponentialRampToValueAtTime(0.001,time+0.4);
+    const g3=audioCtx.createGain();
+    g3.gain.setValueAtTime(0,time);
+    g3.gain.linearRampToValueAtTime(0.02,time+0.002);
+    g3.gain.exponentialRampToValueAtTime(0.001,time+0.25);
+    o1.connect(g1).connect(out);o1.start(time);o1.stop(time+1.5);
+    o2.connect(g2).connect(out);o2.start(time);o2.stop(time+0.5);
+    o3.connect(g3).connect(out);o3.start(time);o3.stop(time+0.3);
   }
   function honk(time,freq,dur,vol){
     const o=audioCtx.createOscillator();o.type='sawtooth';o.frequency.value=freq;
@@ -994,6 +1007,11 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   }
 
+  // Transport flip cards
+  document.querySelectorAll('.transport-card[data-flip]').forEach(function(card){
+    card.addEventListener('click',function(){this.classList.toggle('flipped');});
+  });
+
   // ===== Text entrance animations =====
   function initTextAnimations(){
     const map=[
@@ -1012,7 +1030,8 @@ document.addEventListener('DOMContentLoaded',function(){
       {sel:'#route-stations',cls:'anim-fade-in'},
       {sel:'.section-tag',cls:'anim-fade-in'},
       {sel:'.compare-table',cls:'anim-slide-up'},
-      {sel:'.soul-quote',cls:'anim-fade-in'}
+      {sel:'.soul-quote',cls:'anim-fade-in'},
+      {sel:'.transport-cards',cls:'anim-fade-in'}
     ];
     map.forEach(function(item){
       document.querySelectorAll(item.sel).forEach(function(el){
