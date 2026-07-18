@@ -153,24 +153,23 @@ img{max-width:100%;display:block;}
 .act-section>*{position:relative;z-index:2;}
 
 /* 背景从深蓝逐幕变亮 - 隧道穿越感 */
-#act1{background:#0a1628;}
-#act2{background:#0e1c30;}
-#act3{background:#142438;}
-#act4{background:#1a2f3a;}
-#act5{background:#1f3a4a;}
+#act1{background:#070e1a;}
+#act2{background:#0b1828;}
+#act3{background:#101e30;}
+#act4{background:#162a34;}
+#act5{background:#1c3442;}
 
 /* Act section background images - 新背景图 + 从暗到明 opacity */
 #act1::before,#act2::before,#act3::before,#act4::before,#act5::before{
   content:'';position:absolute;inset:0;z-index:0;
   background-size:cover;background-position:center;
   pointer-events:none;
-  mix-blend-mode:overlay;
 }
-#act1::before{background-image:url('assets/images/bg_act1.jpg');opacity:.15;}
-#act2::before{background-image:url('assets/images/bg_act2.jpg');opacity:.16;}
-#act3::before{background-image:url('assets/images/bg_act3.jpg');opacity:.18;}
-#act4::before{background-image:url('assets/images/bg_act4.jpg');opacity:.20;}
-#act5::before{background-image:url('assets/images/bg_act5.jpg');opacity:.22;}
+#act1::before{background-image:url('assets/images/bg_act1.jpg');opacity:.28;}
+#act2::before{background-image:url('assets/images/bg_act2.jpg');opacity:.30;}
+#act3::before{background-image:url('assets/images/bg_act3.jpg');opacity:.32;}
+#act4::before{background-image:url('assets/images/bg_act4.jpg');opacity:.34;}
+#act5::before{background-image:url('assets/images/bg_act5.jpg');opacity:.36;}
 /* 每幕径向渐变 - 匹配新配色 */
 #act1 .bg-grad{background:radial-gradient(ellipse at 20% 40%,rgba(192,57,43,.12) 0%,transparent 60%);}
 #act2 .bg-grad{background:radial-gradient(ellipse at 80% 40%,rgba(212,116,42,.14) 0%,transparent 60%);}
