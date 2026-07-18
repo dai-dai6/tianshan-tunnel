@@ -1012,6 +1012,26 @@ document.addEventListener('DOMContentLoaded',function(){
     card.addEventListener('click',function(){this.classList.toggle('flipped');});
   });
 
+  // Time compare slider
+  const timeSlider=document.getElementById('time-slider');
+  if(timeSlider){
+    const tcCurrent=document.getElementById('tc-current');
+    const tcSaved=document.getElementById('tc-saved');
+    const tcTunnel=document.getElementById('tc-tunnel');
+    function formatMin(m){
+      if(m>=60){const h=Math.floor(m/60);const rm=Math.round(m%60);return rm>0?h+' 小时 '+rm+' 分钟':h+' 小时';}
+      return Math.round(m)+' 分钟';
+    }
+    function updateTime(){
+      const mins=parseInt(timeSlider.value);
+      tcCurrent.textContent=formatMin(mins);
+      tcSaved.textContent=formatMin(mins*0.5);
+      tcTunnel.textContent=formatMin(mins*0.11);
+    }
+    timeSlider.addEventListener('input',updateTime);
+    updateTime();
+  }
+
   // ===== Text entrance animations =====
   function initTextAnimations(){
     const map=[
@@ -1031,7 +1051,8 @@ document.addEventListener('DOMContentLoaded',function(){
       {sel:'.section-tag',cls:'anim-fade-in'},
       {sel:'.compare-table',cls:'anim-slide-up'},
       {sel:'.soul-quote',cls:'anim-fade-in'},
-      {sel:'.transport-cards',cls:'anim-fade-in'}
+      {sel:'.transport-cards',cls:'anim-fade-in'},
+      {sel:'.time-compare-module',cls:'anim-slide-up'}
     ];
     map.forEach(function(item){
       document.querySelectorAll(item.sel).forEach(function(el){

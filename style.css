@@ -730,3 +730,49 @@ img{max-width:100%;display:block;}
   color:var(--ink-faint);
   margin-top:8px;
 }
+
+/* ===== CHART SOURCE ICON ===== */
+.chart-source-icon{
+  position:absolute;bottom:4px;right:8px;cursor:help;
+  font-size:14px;color:var(--ink-dim);opacity:.6;
+  transition:opacity .2s;
+  z-index:2;
+}
+.chart-source-icon:hover{opacity:1;}
+.chart-source-icon:hover::after{
+  content:attr(data-source);
+  position:absolute;bottom:calc(100% + 6px);right:0;
+  background:rgba(10,22,40,.95);color:var(--ink);
+  padding:6px 10px;border-radius:4px;font-size:12px;
+  white-space:nowrap;pointer-events:none;
+  border:1px solid var(--border);
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+}
+
+/* ===== TIME COMPARE SLIDER ===== */
+.time-compare-module{margin:24px 0;padding:20px;background:var(--bg-card);border-radius:8px;border:1px solid var(--border);}
+.time-compare-module h3.sub-heading{margin-bottom:4px;}
+.tc-slider-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.tc-label{font-size:13px;color:var(--ink-soft);white-space:nowrap;min-width:80px;}
+.tc-slider-wrap{flex:1;}
+.tc-slider{
+  -webkit-appearance:none;appearance:none;width:100%;height:6px;
+  background:var(--border);border-radius:3px;outline:none;cursor:pointer;
+}
+.tc-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:20px;height:20px;
+  background:var(--act3-color);border-radius:50%;cursor:grab;
+  box-shadow:0 0 8px rgba(201,164,59,.4);
+}
+.tc-slider::-moz-range-thumb{
+  width:20px;height:20px;background:var(--act3-color);border-radius:50%;cursor:grab;border:none;
+}
+.tc-value{font-family:var(--mono);font-size:15px;color:var(--ink);font-weight:600;min-width:60px;text-align:right;}
+.tc-result-row{display:flex;gap:12px;flex-wrap:wrap;}
+.tc-result-card{
+  flex:1;min-width:140px;padding:12px 16px;background:rgba(255,255,255,.03);
+  border-radius:6px;border:1px solid var(--border);
+  display:flex;flex-direction:column;gap:4px;
+}
+.tc-result-label{font-size:12px;color:var(--ink-faint);}
+.tc-result-num{font-family:var(--mono);font-size:1.3em;font-weight:600;}
