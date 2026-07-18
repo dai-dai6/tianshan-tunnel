@@ -5,4 +5,5 @@ __pycache__/
 index_deploy.html
 .DS_Store
 assets/images_compressed/
+assets/images_original/
 .trae/
