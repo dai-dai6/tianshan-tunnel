@@ -137,13 +137,21 @@ img{max-width:100%;display:block;}
   background:linear-gradient(90deg,var(--act1-color),var(--act2-color),var(--act3-color),var(--act4-color),var(--act5-color));
 }
 
-/* ===== SECTIONS ===== */
+/* ===== SECTIONS - 从暗到亮渐变 ===== */
 .act-section{
   min-height:100vh;display:flex;flex-direction:column;justify-content:center;
   padding:120px 9vw 100px;position:relative;overflow:hidden;
+  transition:background .8s ease;
 }
-.act-section .bg-grad{position:absolute;inset:0;z-index:1;}
+.act-section .bg-grad{position:absolute;inset:0;z-index:1;transition:opacity .8s ease;}
 .act-section>*{position:relative;z-index:2;}
+
+/* 背景从深蓝逐幕变亮 */
+#act1{background:#0a1628;}
+#act2{background:#0d1f38;}
+#act3{background:#11294a;}
+#act4{background:#15345c;}
+#act5{background:#1a3f6e;}
 
 /* Act section background images */
 #act1::before,#act2::before,#act3::before,#act4::before,#act5::before{
@@ -156,6 +164,13 @@ img{max-width:100%;display:block;}
 #act3::before{background-image:url('assets/images/bg_act3.jpg');}
 #act4::before{background-image:url('assets/images/bg_act4.jpg');}
 #act5::before{background-image:url('assets/images/bg_act5.jpg');}
+
+/* 每幕径向渐变从暗到亮 */
+#act1 .bg-grad{background:radial-gradient(ellipse at 20% 40%,rgba(226,105,63,.10) 0%,transparent 60%);}
+#act2 .bg-grad{background:radial-gradient(ellipse at 80% 40%,rgba(224,162,61,.12) 0%,transparent 60%);}
+#act3 .bg-grad{background:radial-gradient(ellipse at 20% 50%,rgba(79,195,192,.14) 0%,transparent 60%);}
+#act4 .bg-grad{background:radial-gradient(ellipse at 80% 40%,rgba(224,98,138,.16) 0%,transparent 60%);}
+#act5 .bg-grad{background:radial-gradient(ellipse at 50% 50%,rgba(154,165,177,.18) 0%,transparent 60%);}
 .mag-left{max-width:680px;margin:0 auto;}
 .mag-right{max-width:680px;margin:0 auto 0 auto;}
 .mag-center{max-width:740px;margin:0 auto;text-align:center;}
@@ -302,6 +317,47 @@ img{max-width:100%;display:block;}
 /* ===== REVEAL ANIMATIONS ===== */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Text entrance animations */
+.anim-slide-up{
+  opacity:0;transform:translateY(32px);
+  transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);
+}
+.anim-slide-up.visible{opacity:1;transform:translateY(0);}
+
+.anim-slide-left{
+  opacity:0;transform:translateX(-40px);
+  transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);
+}
+.anim-slide-left.visible{opacity:1;transform:translateX(0);}
+
+.anim-slide-right{
+  opacity:0;transform:translateX(40px);
+  transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94);
+}
+.anim-slide-right.visible{opacity:1;transform:translateX(0);}
+
+.anim-fade-in{
+  opacity:0;
+  transition:opacity .9s ease;
+}
+.anim-fade-in.visible{opacity:1;}
+
+.anim-scale-in{
+  opacity:0;transform:scale(.92);
+  transition:opacity .6s cubic-bezier(.25,.46,.45,.94),transform .6s cubic-bezier(.25,.46,.45,.94);
+}
+.anim-scale-in.visible{opacity:1;transform:scale(1);}
+
+/* Stagger delay children within a group */
+.anim-stagger .anim-slide-up:nth-child(1){transition-delay:0s;}
+.anim-stagger .anim-slide-up:nth-child(2){transition-delay:.1s;}
+.anim-stagger .anim-slide-up:nth-child(3){transition-delay:.2s;}
+.anim-stagger .anim-slide-up:nth-child(4){transition-delay:.3s;}
+.anim-stagger .anim-slide-up:nth-child(5){transition-delay:.4s;}
+.anim-stagger .anim-fade-in:nth-child(1){transition-delay:0s;}
+.anim-stagger .anim-fade-in:nth-child(2){transition-delay:.12s;}
+.anim-stagger .anim-fade-in:nth-child(3){transition-delay:.24s;}
 
 /* ===== ROUTE STATIONS (Act 3) ===== */
 .route-stations{

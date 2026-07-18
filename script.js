@@ -876,6 +876,12 @@ document.addEventListener('DOMContentLoaded',function(){
   // Start button
   document.getElementById('start-btn').addEventListener('click',function(){
     initAudio();
+    // Mobile fix: resume AudioContext after user gesture
+    if(audioCtx && audioCtx.state==='suspended'){
+      audioCtx.resume().then(function(){
+        // Audio now active on mobile
+      });
+    }
     document.getElementById('start-overlay').classList.add('hidden');
     document.getElementById('control-bar').style.opacity='1';
     drawMeter();
@@ -914,6 +920,44 @@ document.addEventListener('DOMContentLoaded',function(){
       const target=document.getElementById(this.getAttribute('href').slice(1));
       if(target) target.scrollIntoView({behavior:'smooth'});
     });
+  });
+
+  // ===== Text entrance animations =====
+  function initTextAnimations(){
+    const map=[
+      {sel:'.prose-block',cls:'anim-slide-up'},
+      {sel:'.pull-quote',cls:'anim-slide-up'},
+      {sel:'.data-callout',cls:'anim-slide-left'},
+      {sel:'.injected-image',cls:'anim-fade-in'},
+      {sel:'.big-stat',cls:'anim-scale-in'},
+      {sel:'.sub-heading',cls:'anim-slide-up'},
+      {sel:'.audio-trigger-wrap',cls:'anim-fade-in'},
+      {sel:'.triple-stat',cls:'anim-slide-up'},
+      {sel:'.ending-cta',cls:'anim-fade-in'},
+      {sel:'.act-header',cls:'anim-slide-up'},
+      {sel:'.data-table-wrap',cls:'anim-fade-in'},
+      {sel:'.tourism-compare',cls:'anim-fade-in'},
+      {sel:'#route-stations',cls:'anim-fade-in'}
+    ];
+    map.forEach(function(item){
+      document.querySelectorAll(item.sel).forEach(function(el){
+        el.classList.add(item.cls);
+      });
+    });
+  }
+  initTextAnimations();
+
+  const textAnimObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        textAnimObs.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+  document.querySelectorAll('.anim-slide-up,.anim-slide-left,.anim-fade-in,.anim-scale-in,.anim-slide-right').forEach(function(el){
+    textAnimObs.observe(el);
   });
 
   // Scroll
