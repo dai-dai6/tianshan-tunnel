@@ -773,7 +773,7 @@ function animateDualNums(){
 
 /* ========== ECHARTS ========== */
 let echartsLoaded=false;
-let tourismChart=null,comparisonChart=null;
+let tourismChart=null,comparisonChart=null,highwayChart=null;
 
 function initCharts(){
   if(typeof echarts==='undefined') return;
@@ -811,6 +811,61 @@ function initCharts(){
       ]
     });
   }
+  // Highway mileage bar chart
+  var hwEl=document.getElementById('echart-highway');
+  if(hwEl&&!highwayChart){
+    highwayChart=echarts.init(hwEl,null,{renderer:'canvas'});
+    var hwYears=['1949','1960','1978','2024','2025年底'];
+    var hwData=[0.34,1.87,2.38,23,24.6];
+    var hwDetails=[
+      '新中国成立初期，新疆公路通车里程仅3361公里，平均每万平方公里仅20公里公路',
+      '经过11年建设，公路里程增长5.5倍，但仍远低于全国平均水平',
+      '改革开放前夕，公路里程达2.38万公里，但天山仍无高等级公路',
+      '新疆公路总里程突破23万公里，但跨越天山的唯一通道仍是老路',
+      '乌尉高速通车，公路里程达24.6万公里，76年增长72倍'
+    ];
+    highwayChart.setOption({
+      backgroundColor:'transparent',
+      tooltip:{
+        trigger:'axis',
+        backgroundColor:'rgba(10,22,40,.95)',borderColor:'rgba(255,255,255,.12)',
+        textStyle:{color:'#eae8e4',fontSize:13,lineHeight:1.6},
+        formatter:function(p){
+          var d=p[0];
+          return '<b style="font-size:14px">'+d.name+'年</b><br/>公路里程：<b style="color:#E0A23D;font-size:16px">'+d.value+'</b> 万公里<br/><span style="color:rgba(234,232,228,.6);font-size:12px">'+hwDetails[d.dataIndex]+'</span>';
+        }
+      },
+      grid:{top:24,bottom:40,left:60,right:20},
+      xAxis:{type:'category',data:hwYears,
+        axisLine:{lineStyle:{color:'rgba(255,255,255,.08)'}},
+        axisLabel:{color:'rgba(234,232,228,.5)',fontSize:12,fontFamily:'JetBrains Mono'},
+        axisTick:{show:false}},
+      yAxis:{type:'value',
+        axisLine:{show:false},
+        axisLabel:{color:'rgba(234,232,228,.35)',fontSize:11,fontFamily:'JetBrains Mono',formatter:'{value}万'},
+        splitLine:{lineStyle:{color:'rgba(255,255,255,.05)'}}},
+      series:[{
+        type:'bar',data:hwData,barWidth:'36%',
+        itemStyle:{
+          borderRadius:[4,4,0,0],
+          color:new echarts.graphic.LinearGradient(0,0,0,1,[
+            {offset:0,color:'#E0A23D'},
+            {offset:1,color:'rgba(224,162,61,.25)'}
+          ])
+        },
+        emphasis:{
+          itemStyle:{
+            color:new echarts.graphic.LinearGradient(0,0,0,1,[
+              {offset:0,color:'#F0C060'},
+              {offset:1,color:'rgba(224,162,61,.5)'}
+            ])
+          }
+        },
+        animationDuration:1500,animationEasing:'cubicOut'
+      }]
+    });
+    highwayChart.on('click',function(p){/* tooltip handles detail */});
+  }
   // Comparison chart
   const compEl=document.getElementById('echart-comparison');
   if(compEl&&!comparisonChart){
@@ -840,6 +895,7 @@ function initCharts(){
 function handleResize(){
   if(tourismChart) tourismChart.resize();
   if(comparisonChart) comparisonChart.resize();
+  if(highwayChart) highwayChart.resize();
   // Mobile: increase chart font sizes
   const isMobile=window.innerWidth<=768;
   const fs=isMobile?13:11;
@@ -921,6 +977,23 @@ document.addEventListener('DOMContentLoaded',function(){
       if(target) target.scrollIntoView({behavior:'smooth'});
     });
   });
+
+  // Compare table click interaction
+  var ctRows=document.querySelectorAll('#compare-table tbody tr');
+  var ctPanel=document.getElementById('compare-detail-panel');
+  if(ctRows.length&&ctPanel){
+    ctRows.forEach(function(row){
+      row.addEventListener('click',function(){
+        var detail=this.getAttribute('data-detail');
+        var label=this.querySelector('td').textContent;
+        if(!detail) return;
+        ctRows.forEach(function(r){r.classList.remove('active-row');});
+        this.classList.add('active-row');
+        ctPanel.style.display='block';
+        ctPanel.innerHTML='<b style="color:var(--ink)">'+label+'：</b>'+detail;
+      });
+    });
+  }
 
   // ===== Text entrance animations =====
   function initTextAnimations(){

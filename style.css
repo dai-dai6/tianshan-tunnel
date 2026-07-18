@@ -206,8 +206,9 @@ img{max-width:100%;display:block;}
 
 /* ===== PROSE BLOCKS ===== */
 .prose-block{margin:24px 0;}
-.prose-block p{font-size:16px;line-height:1.75;color:var(--ink-soft);margin-bottom:24px;}
+.prose-block p{font-size:16px;line-height:1.85;color:var(--ink-soft);margin-bottom:24px;text-indent:2em;}
 .prose-block p:last-child{margin-bottom:0;}
+.prose-block p em{font-style:normal;font-weight:600;color:var(--ink);}
 .prose-block .cite{
   display:block;margin-top:8px;font-size:12.5px;color:var(--ink-faint);
   letter-spacing:.02em;
@@ -414,6 +415,7 @@ img{max-width:100%;display:block;}
   height:100%;display:flex;align-items:center;padding:0 14px;
   border-radius:4px;transition:width .3s ease;
   font-family:var(--mono);font-size:13px;font-weight:500;
+  white-space:nowrap;overflow:hidden;
 }
 .compare-2015{background:rgba(154,165,177,.25);color:var(--ink-soft);}
 .compare-2025{background:rgba(79,195,192,.3);color:var(--ink);}
@@ -464,6 +466,8 @@ img{max-width:100%;display:block;}
   /* Mobile: compare table */
   .compare-table{font-size:12px;}
   .compare-table thead th,.compare-table tbody td{padding:8px 10px;}
+  .compare-table .ct-change{display:none;}
+  .compare-table .ct-change-val{display:none;}
   /* Mobile: soul quote */
   .soul-quote{min-height:60vh;padding:60px 6vw;}
   .soul-quote .soul-text{font-size:clamp(1.3rem,5vw,2rem);}
@@ -611,11 +615,9 @@ img{max-width:100%;display:block;}
 .act-transition.in-view .transition-sub{
   opacity:1;transform:translateY(0);
 }
-/* Transition divider line */
+/* Transition divider line - removed for cleaner look */
 .act-transition::after{
-  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-  width:1px;height:80px;
-  background:linear-gradient(to bottom,var(--ink-dim),transparent);
+  display:none;
 }
 
 /* ===== SECTION TAG (█ 黑底白字标签) ===== */
@@ -649,6 +651,12 @@ img{max-width:100%;display:block;}
 }
 .compare-table tbody .ct-before-val{color:var(--ink-soft);}
 .compare-table tbody .ct-after-val{color:var(--data-green);font-weight:600;}
+.compare-table tbody .ct-change-val{color:var(--data-green);font-weight:500;}
+.compare-table thead .ct-change{color:var(--data-green);background:rgba(39,174,96,.06);}
+.compare-table tbody tr{cursor:pointer;transition:background .2s;}
+.compare-table tbody tr:hover{background:rgba(255,255,255,.03);}
+.compare-table tbody tr.active-row{background:rgba(39,174,96,.05);}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 
 /* ===== SOUL QUOTE (全屏灵魂句收束) ===== */
 .soul-quote{
