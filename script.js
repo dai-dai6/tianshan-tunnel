@@ -814,7 +814,7 @@ function initCharts(){
   var hwEl=document.getElementById('echart-highway');
   if(hwEl&&!highwayChart){
     highwayChart=echarts.init(hwEl,null,{renderer:'canvas'});
-    var hwYears=['1949','1960','1978','2024','2025年底'];
+    var hwYears=['1949','1960','1978','2024','2025'];
     var hwData=[0.34,1.87,2.38,23,24.6];
     var hwDetails=[
       '新中国成立初期，新疆公路通车里程仅3361公里，平均每万平方公里仅20公里公路',
@@ -831,7 +831,7 @@ function initCharts(){
         textStyle:{color:'#eae8e4',fontSize:13,lineHeight:1.6},
         formatter:function(p){
           var d=p[0];
-          return '<b style="font-size:14px">'+d.name+'年</b><br/>公路里程：<b style="color:#D4742A;font-size:16px">'+d.value+'</b> 万公里<br/><span style="color:rgba(234,232,228,.6);font-size:12px">'+hwDetails[d.dataIndex]+'</span>';
+          return '<b style="font-size:14px">'+d.name+'</b><br/>公路里程：<b style="color:#D4742A;font-size:16px">'+d.value+'</b> 万公里<br/><span style="color:rgba(234,232,228,.6);font-size:12px">'+hwDetails[d.dataIndex]+'</span>';
         }
       },
       grid:{top:32,bottom:48,left:60,right:20},
