@@ -146,31 +146,30 @@ img{max-width:100%;display:block;}
 .act-section .bg-grad{position:absolute;inset:0;z-index:1;transition:opacity .8s ease;}
 .act-section>*{position:relative;z-index:2;}
 
-/* 背景从深蓝逐幕变亮 */
-#act1{background:#0a1628;}
-#act2{background:#0d1f38;}
-#act3{background:#11294a;}
-#act4{background:#15345c;}
-#act5{background:#1a3f6e;}
+/* 背景从深蓝逐幕变亮 - 明显的豁然开朗效果 */
+#act1{background:#08111f;}
+#act2{background:#0e1e3a;}
+#act3{background:#15294f;}
+#act4{background:#1f3866;}
+#act5{background:#2d4a82;}
 
-/* Act section background images */
+/* Act section background images - 亮度从14%逐幕提升到28% */
 #act1::before,#act2::before,#act3::before,#act4::before,#act5::before{
   content:'';position:absolute;inset:0;z-index:0;
   background-size:cover;background-position:center;
-  opacity:.14;pointer-events:none;
+  pointer-events:none;
 }
-#act1::before{background-image:url('assets/images/bg_act1.jpg');}
-#act2::before{background-image:url('assets/images/bg_act2.jpg');}
-#act3::before{background-image:url('assets/images/bg_act3.jpg');}
-#act4::before{background-image:url('assets/images/bg_act4.jpg');}
-#act5::before{background-image:url('assets/images/bg_act5.jpg');}
-
-/* 每幕径向渐变从暗到亮 */
-#act1 .bg-grad{background:radial-gradient(ellipse at 20% 40%,rgba(226,105,63,.10) 0%,transparent 60%);}
-#act2 .bg-grad{background:radial-gradient(ellipse at 80% 40%,rgba(224,162,61,.12) 0%,transparent 60%);}
-#act3 .bg-grad{background:radial-gradient(ellipse at 20% 50%,rgba(79,195,192,.14) 0%,transparent 60%);}
-#act4 .bg-grad{background:radial-gradient(ellipse at 80% 40%,rgba(224,98,138,.16) 0%,transparent 60%);}
-#act5 .bg-grad{background:radial-gradient(ellipse at 50% 50%,rgba(154,165,177,.18) 0%,transparent 60%);}
+#act1::before{background-image:url('assets/images/bg_act1.jpg');opacity:.12;}
+#act2::before{background-image:url('assets/images/bg_act2.jpg');opacity:.16;}
+#act3::before{background-image:url('assets/images/bg_act3.jpg');opacity:.20;}
+#act4::before{background-image:url('assets/images/bg_act4.jpg');opacity:.24;}
+#act5::before{background-image:url('assets/images/bg_act5.jpg');opacity:.28;}
+/* 每幕径向渐变从暗到亮 - 更明显的光晕 */
+#act1 .bg-grad{background:radial-gradient(ellipse at 20% 40%,rgba(226,105,63,.12) 0%,transparent 60%);}
+#act2 .bg-grad{background:radial-gradient(ellipse at 80% 40%,rgba(224,162,61,.16) 0%,transparent 60%);}
+#act3 .bg-grad{background:radial-gradient(ellipse at 20% 50%,rgba(79,195,192,.20) 0%,transparent 60%);}
+#act4 .bg-grad{background:radial-gradient(ellipse at 80% 40%,rgba(224,98,138,.24) 0%,transparent 60%);}
+#act5 .bg-grad{background:radial-gradient(ellipse at 50% 50%,rgba(154,165,177,.28) 0%,transparent 60%);}
 .mag-left{max-width:680px;margin:0 auto;}
 .mag-right{max-width:680px;margin:0 auto 0 auto;}
 .mag-center{max-width:740px;margin:0 auto;text-align:center;}
