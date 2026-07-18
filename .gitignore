@@ -6,3 +6,10 @@ index_deploy.html
 .DS_Store
 assets/images_compressed/
 .trae/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
