@@ -937,7 +937,10 @@ document.addEventListener('DOMContentLoaded',function(){
       {sel:'.act-header',cls:'anim-slide-up'},
       {sel:'.data-table-wrap',cls:'anim-fade-in'},
       {sel:'.tourism-compare',cls:'anim-fade-in'},
-      {sel:'#route-stations',cls:'anim-fade-in'}
+      {sel:'#route-stations',cls:'anim-fade-in'},
+      {sel:'.section-tag',cls:'anim-fade-in'},
+      {sel:'.compare-table',cls:'anim-slide-up'},
+      {sel:'.soul-quote',cls:'anim-fade-in'}
     ];
     map.forEach(function(item){
       document.querySelectorAll(item.sel).forEach(function(el){

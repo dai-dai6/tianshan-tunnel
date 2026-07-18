@@ -18,6 +18,11 @@
   --act3-color:#4FC3C0;
   --act4-color:#E0628A;
   --act5-color:#9AA5B1;
+  /* 数据配色标记 */
+  --data-red:#C0392B;
+  --data-green:#27AE60;
+  --data-orange:#E67E22;
+  --data-quote:#2C3E50;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{font-size:16px;scroll-behavior:auto;}
@@ -189,18 +194,20 @@ img{max-width:100%;display:block;}
 
 /* ===== PULL QUOTES ===== */
 .pull-quote{
-  border-left:3px solid var(--ink-dim);padding:16px 0 16px 24px;margin:28px 0;
-  font-size:16px;line-height:1.85;color:var(--ink-soft);font-style:italic;
+  border-left:4px solid var(--data-quote);padding:20px 0 20px 28px;margin:40px 0;
+  font-size:18px;line-height:1.8;color:var(--ink);font-style:italic;
+  position:relative;
 }
 .pull-quote cite{
-  display:block;margin-top:10px;font-size:12.5px;font-style:normal;color:var(--ink-faint);
+  display:block;margin-top:14px;font-size:13px;font-style:normal;color:var(--ink-faint);
   letter-spacing:.02em;
 }
 .pull-quote cite strong{color:var(--ink-soft);font-weight:500;}
 
 /* ===== PROSE BLOCKS ===== */
 .prose-block{margin:24px 0;}
-.prose-block p{font-size:15px;line-height:1.9;color:var(--ink-soft);}
+.prose-block p{font-size:16px;line-height:1.75;color:var(--ink-soft);margin-bottom:24px;}
+.prose-block p:last-child{margin-bottom:0;}
 .prose-block .cite{
   display:block;margin-top:8px;font-size:12.5px;color:var(--ink-faint);
   letter-spacing:.02em;
@@ -448,10 +455,18 @@ img{max-width:100%;display:block;}
   .control-bar{top:10px;left:10px;padding:6px 6px 6px 12px;gap:8px;}
   #current-act-label{font-size:10px;min-width:48px;}
   .start-card h2{font-size:32px;}
-  .pull-quote{font-size:14.5px;padding-left:18px;}
+  .pull-quote{font-size:16px;padding-left:20px;margin:32px 0;}
   /* Mobile: chart/image caption +2px */
   .img-caption{font-size:14px !important;}
   .data-callout{font-size:14px !important;}
+  /* Mobile: section-tag */
+  .section-tag{font-size:11px;padding:4px 10px;margin:24px 0 12px;}
+  /* Mobile: compare table */
+  .compare-table{font-size:12px;}
+  .compare-table thead th,.compare-table tbody td{padding:8px 10px;}
+  /* Mobile: soul quote */
+  .soul-quote{min-height:60vh;padding:60px 6vw;}
+  .soul-quote .soul-text{font-size:clamp(1.3rem,5vw,2rem);}
   .injected-image img{cursor:default;}
   .injected-image:hover img{transform:none;box-shadow:none;}
   /* Mobile: stations simpler */
@@ -488,11 +503,7 @@ img{max-width:100%;display:block;}
   background:var(--ink-dim);
 }
 
-/* ===== 优化2: 引言留白 ===== */
-.pull-quote{
-  margin:40px 0 !important;
-  padding:20px 0 20px 24px !important;
-}
+/* ===== 优化2: 引言留白 - 已合并到基础 pull-quote ===== */
 
 /* ===== 优化3: 数据面板与正文间距 ===== */
 .big-stat{
@@ -517,6 +528,15 @@ img{max-width:100%;display:block;}
   color:var(--ink-soft);
   letter-spacing:.01em;
 }
+/* 数据高亮：数字放大+配色 */
+.data-callout .d-red{color:var(--data-red);font-size:1.35em;font-weight:600;}
+.data-callout .d-green{color:var(--data-green);font-size:1.35em;font-weight:600;}
+.data-callout .d-orange{color:var(--data-orange);font-size:1.35em;font-weight:600;}
+.data-callout .d-bold{font-size:1.2em;font-weight:600;color:var(--ink);}
+/* 正文中的数据高亮（用于 prose-block 内） */
+.d-red{color:var(--data-red);font-weight:600;}
+.d-green{color:var(--data-green);font-weight:600;}
+.d-orange{color:var(--data-orange);font-weight:600;}
 
 /* ===== 优化5: 结尾强化 ===== */
 .ending-cta{
@@ -596,6 +616,64 @@ img{max-width:100%;display:block;}
   content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
   width:1px;height:80px;
   background:linear-gradient(to bottom,var(--ink-dim),transparent);
+}
+
+/* ===== SECTION TAG (█ 黑底白字标签) ===== */
+.section-tag{
+  display:inline-block;
+  background:#1a1a2e;color:#fff;
+  font-family:var(--mono);font-size:12px;font-weight:500;
+  letter-spacing:.08em;padding:5px 14px;border-radius:3px;
+  margin:36px 0 16px;white-space:nowrap;
+}
+
+/* ===== COMPARE TABLE (左右对比表) ===== */
+.compare-table{
+  width:100%;border-collapse:collapse;margin:28px 0;
+  font-size:14px;
+}
+.compare-table thead th{
+  padding:12px 16px;font-size:13px;font-weight:600;
+  text-align:center;letter-spacing:.04em;
+}
+.compare-table thead th:first-child{text-align:left;color:var(--ink-faint);}
+.compare-table thead .ct-before{color:var(--data-orange);background:rgba(230,126,34,.06);}
+.compare-table thead .ct-after{color:var(--data-green);background:rgba(39,174,96,.06);}
+.compare-table tbody td{
+  padding:12px 16px;text-align:center;
+  border-bottom:1px solid var(--border);
+  font-family:var(--mono);font-size:14px;
+}
+.compare-table tbody td:first-child{
+  text-align:left;font-family:var(--sans);font-size:13px;color:var(--ink-faint);
+}
+.compare-table tbody .ct-before-val{color:var(--ink-soft);}
+.compare-table tbody .ct-after-val{color:var(--data-green);font-weight:600;}
+
+/* ===== SOUL QUOTE (全屏灵魂句收束) ===== */
+.soul-quote{
+  min-height:80vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:80px 9vw;
+  position:relative;
+  background:#0a0e18;
+}
+.soul-quote::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(234,232,228,.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+.soul-quote .soul-text{
+  font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.8rem);
+  font-weight:700;color:var(--ink);line-height:1.6;
+  letter-spacing:.04em;max-width:680px;
+  position:relative;z-index:1;
+}
+.soul-quote .soul-text::before{content:'\201C';display:block;font-size:2em;color:var(--ink-dim);margin-bottom:8px;}
+.soul-quote .soul-text::after{content:'\201D';display:block;font-size:2em;color:var(--ink-dim);margin-top:8px;text-align:right;}
+.soul-quote .soul-author{
+  margin-top:32px;font-size:14px;color:var(--ink-faint);
+  letter-spacing:.06em;position:relative;z-index:1;
 }
 
 /* ===== 封面导语文字 ===== */
