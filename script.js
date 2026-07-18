@@ -27,7 +27,7 @@ const actTargets=[
   {crowd:0.22,vendor:0.38,market:0.12},       // 04 繁荣 - 明快巴扎
   {melody:0.22}                                 // 05 未来 - 轻快旋律
 ];
-const actColors=['#E2693F','#E0A23D','#4FC3C0','#E0628A','#9AA5B1'];
+const actColors=['#C0392B','#D4742A','#C9A43B','#5EA87A','#4A90D9'];
 const actNames=['危途','凿穿','坦途','繁荣','未来'];
 
 function makeNoiseSource(){
@@ -138,60 +138,58 @@ function initAudio(){
   honkOsc.connect(honkFilter).connect(honkBus).connect(masterGain);honkOsc.start();
   buses.honk=honkBus;
 
-  /* ========== ACT 04: 繁荣 - 明快巴扎氛围 ========== */
-  // Warm bright pad (lighter than sawtooth, uses triangle)
-  const bzPad1=audioCtx.createOscillator();bzPad1.type='triangle';bzPad1.frequency.value=196; // G3
-  const bzPad2=audioCtx.createOscillator();bzPad2.type='triangle';bzPad2.frequency.value=247; // B3
-  const bzPad3=audioCtx.createOscillator();bzPad3.type='sine';bzPad3.frequency.value=294; // D4
-  const bzPadBus=audioCtx.createGain();bzPadBus.gain.value=0;
-  bzPad1.connect(bzPadBus).connect(masterGain);bzPad1.start();
-  bzPad2.connect(bzPadBus);bzPad2.start();
-  bzPad3.connect(bzPadBus);bzPad3.start();
-  // Gentle pad volume wobble for organic feel
-  const bzLFO=audioCtx.createOscillator();bzLFO.frequency.value=0.3;
-  const bzLFOG=audioCtx.createGain();bzLFOG.gain.value=0.03;
-  bzLFO.connect(bzLFOG).connect(bzPadBus.gain);bzLFO.start();
-  buses.crowd=bzPadBus;
-
-  // Bright bazaar chimes (sine pentatonic, random timing)
-  const bzChimeBus=audioCtx.createGain();bzChimeBus.gain.value=0;
-  bzChimeBus.connect(masterGain);
-  const chimeScale=[523.3,587.3,659.3,784,880,1047,1175,1319]; // C5 pentatonic+
-  function playChime(){
+  /* ========== ACT 04: 繁荣 - 冬不拉+管弦温暖上扬 ========== */
+  // Layer 1: Dombra-like plucked strings (triangle wave, pentatonic, kazakh tuning)
+  // Kazakh dombra approx: D3 A3 D4 F#4 A4 — using tempered: 146.8, 220, 293.7, 370, 440
+  const dombraScale=[146.8,220,293.7,370,440,587.3,659.3,740,880];
+  const dombraBus=audioCtx.createGain();dombraBus.gain.value=0;
+  dombraBus.connect(masterGain);
+  let dombraTimer=null;
+  function playDombra(){
     if(!audioReady) return;
-    const freq=chimeScale[Math.floor(Math.random()*chimeScale.length)];
+    const freq=dombraScale[Math.floor(Math.random()*dombraScale.length)];
     const now=audioCtx.currentTime;
-    const o=audioCtx.createOscillator();o.type='sine';o.frequency.value=freq;
+    // Pluck envelope: fast attack, medium sustain, slow decay
+    const o=audioCtx.createOscillator();o.type='triangle';o.frequency.value=freq;
     const g=audioCtx.createGain();
     g.gain.setValueAtTime(.001,now);
-    g.gain.linearRampToValueAtTime(0.08+Math.random()*0.06,now+0.02);
-    g.gain.exponentialRampToValueAtTime(.001,now+0.5+Math.random()*0.4);
-    o.connect(g).connect(bzChimeBus);o.start(now);o.stop(now+1.2);
-    // Occasionally add a harmonic
-    if(Math.random()<0.3){
-      const o2=audioCtx.createOscillator();o2.type='sine';o2.frequency.value=freq*2;
-      const g2=audioCtx.createGain();
-      g2.gain.setValueAtTime(.001,now);
-      g2.gain.linearRampToValueAtTime(0.03,now+0.02);
-      g2.gain.exponentialRampToValueAtTime(.001,now+0.3);
-      o2.connect(g2).connect(bzChimeBus);o2.start(now);o2.stop(now+0.5);
-    }
+    g.gain.linearRampToValueAtTime(0.12+Math.random()*0.06,now+0.01);
+    g.gain.exponentialRampToValueAtTime(0.04,now+0.3);
+    g.gain.exponentialRampToValueAtTime(.001,now+0.8+Math.random()*0.6);
+    // Add slight vibrato for organic feel
+    const vib=audioCtx.createOscillator();vib.frequency.value=5+Math.random()*3;
+    const vibG=audioCtx.createGain();vibG.gain.value=2+Math.random()*2;
+    vib.connect(vibG).connect(o.frequency);vib.start(now);vib.stop(now+1.5);
+    o.connect(g).connect(dombraBus);o.start(now);o.stop(now+1.8);
   }
-  // Chime timing: random interval 300-900ms
-  function scheduleChime(){
-    playChime();
-    const next=300+Math.random()*600;
-    bzChimeTimer=setTimeout(scheduleChime,next);
+  function scheduleDombra(){
+    playDombra();
+    const next=400+Math.random()*800;
+    dombraTimer=setTimeout(scheduleDombra,next);
   }
-  let bzChimeTimer=null;
-  buses.vendor=bzChimeBus;
-  // Start chimes immediately (they'll be gated by bus gain)
-  scheduleChime();
+  scheduleDombra();
+  buses.crowd=dombraBus;
 
-  // Light chatter/presence noise (high-pass, bright)
+  // Layer 2: Warm orchestral strings (sawtooth filtered, chord pad)
+  // D minor → G major progression feel: D3 F3 A3
+  const strOsc1=audioCtx.createOscillator();strOsc1.type='sawtooth';strOsc1.frequency.value=146.8; // D3
+  const strOsc2=audioCtx.createOscillator();strOsc2.type='sawtooth';strOsc2.frequency.value=174.6; // F3
+  const strOsc3=audioCtx.createOscillator();strOsc3.type='sawtooth';strOsc3.frequency.value=220;   // A3
+  const strFilter=audioCtx.createBiquadFilter();strFilter.type='lowpass';strFilter.frequency.value=800;strFilter.Q.value=0.7;
+  const strBus=audioCtx.createGain();strBus.gain.value=0;
+  strOsc1.connect(strFilter);strOsc2.connect(strFilter);strOsc3.connect(strFilter);
+  strFilter.connect(strBus).connect(masterGain);
+  strOsc1.start();strOsc2.start();strOsc3.start();
+  // Gentle breathing LFO on strings
+  const strLFO=audioCtx.createOscillator();strLFO.frequency.value=0.25;
+  const strLFOG=audioCtx.createGain();strLFOG.gain.value=0.04;
+  strLFO.connect(strLFOG).connect(strBus.gain);strLFO.start();
+  buses.vendor=strBus;
+
+  // Layer 3: Subtle light percussion/ambience (filtered noise, gentle presence)
   const bzNoiseSrc=makeNoiseSource();
   const bzNoiseFilt=audioCtx.createBiquadFilter();
-  bzNoiseFilt.type='highpass';bzNoiseFilt.frequency.value=1200;
+  bzNoiseFilt.type='bandpass';bzNoiseFilt.frequency.value=2000;bzNoiseFilt.Q.value=0.5;
   const bzNoiseBus=audioCtx.createGain();bzNoiseBus.gain.value=0;
   bzNoiseSrc.connect(bzNoiseFilt).connect(bzNoiseBus).connect(masterGain);
   buses.market=bzNoiseBus;
@@ -622,16 +620,17 @@ function playOneShot(type){
     src.connect(filt).connect(g).connect(masterGain);
     src.start(now);src.stop(now+2.1);
   }else if(type==='sparkle'){
-    // Bright ascending chime burst (bazaar entry)
-    const freqs=[784,880,1047,1175,1319,1568];
+    // Warm dombra strum entry (ascending plucked notes)
+    const freqs=[293.7,370,440,587.3,659.3,880];
     freqs.forEach((f,i)=>{
-      const o=audioCtx.createOscillator();o.type='sine';o.frequency.value=f;
+      const o=audioCtx.createOscillator();o.type='triangle';o.frequency.value=f;
       const g=audioCtx.createGain();
-      const t=now+i*0.06;
+      const t=now+i*0.08;
       g.gain.setValueAtTime(.001,t);
-      g.gain.linearRampToValueAtTime(0.12,t+0.02);
-      g.gain.exponentialRampToValueAtTime(.001,t+0.35);
-      o.connect(g).connect(masterGain);o.start(t);o.stop(t+0.4);
+      g.gain.linearRampToValueAtTime(0.15,t+0.01);
+      g.gain.exponentialRampToValueAtTime(0.05,t+0.2);
+      g.gain.exponentialRampToValueAtTime(.001,t+0.6);
+      o.connect(g).connect(masterGain);o.start(t);o.stop(t+0.7);
     });
   }else if(type==='ding'){
     const osc=audioCtx.createOscillator();osc.type='triangle';osc.frequency.value=880;
@@ -800,13 +799,13 @@ function initCharts(){
       series:[
         {name:'游客接待量（亿人次）',type:'line',yAxisIndex:0,
          data:[2.13,1.58,1.91,1.25,2.65,3.02,3.23],smooth:true,symbol:'circle',symbolSize:5,
-         lineStyle:{color:'#4FC3C0',width:2},itemStyle:{color:'#4FC3C0'},
-         areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(79,195,192,.25)'},{offset:1,color:'rgba(79,195,192,.02)'}])},
+         lineStyle:{color:'#C9A43B',width:2},itemStyle:{color:'#C9A43B'},
+         areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(201,164,59,.25)'},{offset:1,color:'rgba(201,164,59,.02)'}])},
          animationDuration:2000},
         {name:'旅游收入（亿元）',type:'line',yAxisIndex:1,
          data:[3632,1416,1917,960,2780,3200,3700],smooth:true,symbol:'diamond',symbolSize:5,
-         lineStyle:{color:'#E0628A',width:2},itemStyle:{color:'#E0628A'},
-         areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(224,98,138,.15)'},{offset:1,color:'rgba(224,98,138,.02)'}])},
+         lineStyle:{color:'#4A90D9',width:2},itemStyle:{color:'#4A90D9'},
+         areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(74,144,217,.15)'},{offset:1,color:'rgba(74,144,217,.02)'}])},
          animationDuration:2000,animationDelay:300}
       ]
     });
@@ -832,7 +831,7 @@ function initCharts(){
         textStyle:{color:'#eae8e4',fontSize:13,lineHeight:1.6},
         formatter:function(p){
           var d=p[0];
-          return '<b style="font-size:14px">'+d.name+'年</b><br/>公路里程：<b style="color:#E0A23D;font-size:16px">'+d.value+'</b> 万公里<br/><span style="color:rgba(234,232,228,.6);font-size:12px">'+hwDetails[d.dataIndex]+'</span>';
+          return '<b style="font-size:14px">'+d.name+'年</b><br/>公路里程：<b style="color:#D4742A;font-size:16px">'+d.value+'</b> 万公里<br/><span style="color:rgba(234,232,228,.6);font-size:12px">'+hwDetails[d.dataIndex]+'</span>';
         }
       },
       grid:{top:32,bottom:48,left:60,right:20},
@@ -849,15 +848,15 @@ function initCharts(){
         itemStyle:{
           borderRadius:[4,4,0,0],
           color:new echarts.graphic.LinearGradient(0,0,0,1,[
-            {offset:0,color:'#E0A23D'},
-            {offset:1,color:'rgba(224,162,61,.25)'}
+            {offset:0,color:'#D4742A'},
+            {offset:1,color:'rgba(212,116,42,.25)'}
           ])
         },
         emphasis:{
           itemStyle:{
             color:new echarts.graphic.LinearGradient(0,0,0,1,[
-              {offset:0,color:'#F0C060'},
-              {offset:1,color:'rgba(224,162,61,.5)'}
+              {offset:0,color:'#E8944A'},
+              {offset:1,color:'rgba(212,116,42,.5)'}
             ])
           }
         },
@@ -882,10 +881,10 @@ function initCharts(){
         splitLine:{lineStyle:{color:'rgba(255,255,255,.04)'}}},
       series:[
         {name:'南疆',type:'bar',barWidth:'30%',data:[5744,6128,6439],
-         itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#E0628A'},{offset:1,color:'rgba(224,98,138,.2)'}]),borderRadius:[3,3,0,0]},
+         itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#C0392B'},{offset:1,color:'rgba(192,57,43,.2)'}]),borderRadius:[3,3,0,0]},
          animationDuration:1500},
         {name:'北疆',type:'bar',barWidth:'30%',data:[11811,12681,13192],
-         itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#E0A23D'},{offset:1,color:'rgba(224,162,61,.2)'}]),borderRadius:[3,3,0,0]},
+         itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#4A90D9'},{offset:1,color:'rgba(74,144,217,.2)'}]),borderRadius:[3,3,0,0]},
          animationDuration:1500,animationDelay:200}
       ]
     });
