@@ -304,7 +304,7 @@ function setActiveAct(i){
     const now=audioCtx.currentTime;
     g.gain.cancelScheduledValues(now);
     g.gain.setValueAtTime(g.gain.value,now);
-    g.gain.linearRampToValueAtTime(target,now+1.8);
+    g.gain.linearRampToValueAtTime(target,now+(target===0?0.15:1.8));
   });
 }
 
@@ -1079,6 +1079,17 @@ document.addEventListener('DOMContentLoaded',function(){
 
   document.querySelectorAll('.anim-slide-up,.anim-slide-left,.anim-fade-in,.anim-scale-in,.anim-slide-right').forEach(function(el){
     textAnimObs.observe(el);
+  });
+
+  // Timeline tabs
+  document.querySelectorAll('.tt-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var parent=this.closest('.timeline-tabs');
+      parent.querySelectorAll('.tt-btn').forEach(function(b){b.classList.remove('active');});
+      parent.querySelectorAll('.tt-panel').forEach(function(p){p.classList.remove('active');});
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
+    });
   });
 
   // Scroll
