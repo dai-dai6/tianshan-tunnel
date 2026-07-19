@@ -368,6 +368,9 @@ img{max-width:100%;display:block;}
 .anim-stagger .anim-fade-in:nth-child(3){transition-delay:.24s;}
 
 /* ===== ROUTE STATIONS (Act 3) ===== */
+.route-layout{display:flex;gap:20px;align-items:flex-start;margin:12px 0 20px;}
+.route-map{flex:1;min-width:0;border-radius:6px;overflow:hidden;border:1px solid var(--border);}
+.route-map img{width:100%;display:block;}
 .route-stations{
   display:flex;flex-direction:column;gap:0;
   margin:20px 0 28px;padding-left:16px;
@@ -475,6 +478,7 @@ img{max-width:100%;display:block;}
   .injected-image img{cursor:default;}
   .injected-image:hover img{transform:none;box-shadow:none;}
   /* Mobile: stations simpler */
+  .route-layout{flex-direction:column;}
   .route-stations{padding-left:12px;}
   .station-item{padding:8px 0 8px 16px;}
   .station-name{font-size:13px;}
