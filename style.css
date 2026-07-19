@@ -659,31 +659,17 @@ img{max-width:100%;display:block;}
 .compare-table tbody tr.active-row{background:rgba(92,184,130,.05);}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 
-/* ===== TRANSPORT FLIP CARDS ===== */
-.transport-cards{display:flex;gap:16px;margin:16px 0 24px;flex-wrap:wrap;}
-.transport-card{perspective:600px;cursor:pointer;width:100%;max-width:320px;}
-.transport-card .tc-front,.transport-card .tc-back{
-  border-radius:8px;padding:20px;backface-visibility:hidden;
-  transition:transform .5s ease;border:1px solid var(--border);
-}
-.transport-card .tc-front{
-  background:var(--bg-card);display:flex;flex-direction:column;align-items:center;gap:8px;
-}
-.transport-card .tc-back{
-  background:var(--bg-card);position:absolute;inset:0;transform:rotateY(180deg);
-  display:flex;flex-direction:column;justify-content:center;gap:12px;
-}
-.transport-card.flipped .tc-front{transform:rotateY(180deg);}
-.transport-card.flipped .tc-back{transform:rotateY(0deg);}
-.tc-icon{font-size:2rem;}
-.tc-label{font-size:15px;color:var(--ink);font-weight:500;}
-.tc-hint{font-size:12px;color:var(--ink-faint);}
-.tc-row{display:flex;align-items:center;gap:8px;font-size:14px;justify-content:space-between;}
-.tc-k{color:var(--ink-faint);min-width:40px;}
-.tc-before{color:var(--data-before);text-decoration:line-through;}
-.tc-arrow{color:var(--ink-dim);}
-.tc-after{color:var(--data-after);font-weight:600;}
-.transport-card{position:relative;}
+/* ===== LOGISTICS COMPARE TABLE ===== */
+.logistics-compare{border:1px solid var(--border);border-radius:6px;overflow:hidden;margin:16px 0 24px;font-size:14px;}
+.lc-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;border-bottom:1px solid var(--border);}
+.lc-row:last-child{border-bottom:none;}
+.lc-header{background:rgba(255,255,255,.03);}
+.lc-header .lc-cell{font-weight:500;color:var(--ink-soft);font-size:12px;padding:8px 12px;}
+.lc-cell{padding:10px 12px;color:var(--ink-soft);}
+.lc-label{color:var(--ink);font-weight:500;}
+.lc-before{color:var(--data-before);}
+.lc-after{color:var(--data-after);}
+.lc-summary .lc-cell{grid-column:1/-1;text-align:center;font-size:13px;}
 
 /* ===== SOUL QUOTE (全屏灵魂句收束) ===== */
 .soul-quote{
@@ -736,7 +722,7 @@ img{max-width:100%;display:block;}
   position:absolute;bottom:4px;right:8px;cursor:help;
   font-size:14px;color:var(--ink-dim);opacity:.6;
   transition:opacity .2s;
-  z-index:2;
+  z-index:10;
 }
 .chart-source-icon:hover{opacity:1;}
 .chart-source-icon:hover::after{
@@ -768,9 +754,9 @@ img{max-width:100%;display:block;}
   width:20px;height:20px;background:var(--act3-color);border-radius:50%;cursor:grab;border:none;
 }
 .tc-value{font-family:var(--mono);font-size:15px;color:var(--ink);font-weight:600;min-width:60px;text-align:right;}
-.tc-result-row{display:flex;gap:12px;flex-wrap:wrap;}
+.tc-result-row{display:flex;gap:12px;}
 .tc-result-card{
-  flex:1;min-width:140px;padding:12px 16px;background:rgba(255,255,255,.03);
+  flex:1;padding:12px 16px;background:rgba(255,255,255,.03);
   border-radius:6px;border:1px solid var(--border);
   display:flex;flex-direction:column;gap:4px;
 }

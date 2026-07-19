@@ -885,20 +885,28 @@ function initCharts(){
     comparisonChart.setOption({
       backgroundColor:'transparent',
       tooltip:{trigger:'axis',backgroundColor:'rgba(10,22,40,.92)',borderColor:'rgba(255,255,255,.1)',textStyle:{color:'#eae8e4',fontSize:12}},
-      legend:{data:['南疆','北疆'],top:12,textStyle:{color:'rgba(234,232,228,.5)',fontSize:11},itemWidth:14,itemHeight:10},
-      grid:{top:50,bottom:36,left:50,right:20},
+      legend:{data:['南疆','北疆','差距比值'],top:12,textStyle:{color:'rgba(234,232,228,.5)',fontSize:11},itemWidth:14,itemHeight:10},
+      grid:{top:50,bottom:36,left:50,right:50},
       xAxis:{type:'category',data:['2023','2024','2025'],
         axisLine:{lineStyle:{color:'rgba(255,255,255,.08)'}},
         axisLabel:{color:'rgba(234,232,228,.4)',fontSize:12},axisTick:{show:false}},
-      yAxis:{type:'value',axisLine:{show:false},axisLabel:{color:'rgba(234,232,228,.35)',fontSize:10},
+      yAxis:[{type:'value',axisLine:{show:false},axisLabel:{color:'rgba(234,232,228,.35)',fontSize:10},
         splitLine:{lineStyle:{color:'rgba(255,255,255,.04)'}}},
+        {type:'value',name:'差距比值',nameTextStyle:{color:'rgba(234,232,228,.5)',fontSize:11},
+        min:1.8,max:2.2,interval:0.1,
+        axisLine:{show:true,lineStyle:{color:'rgba(255,255,255,.15)'}},
+        splitLine:{show:false},axisLabel:{color:'rgba(234,232,228,.5)',fontSize:11}}],
       series:[
         {name:'南疆',type:'bar',barWidth:'30%',data:[5744,6128,6439],
          itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#C0392B'},{offset:1,color:'rgba(192,57,43,.2)'}]),borderRadius:[3,3,0,0]},
          animationDuration:1500},
         {name:'北疆',type:'bar',barWidth:'30%',data:[11811,12681,13192],
          itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#4A90D9'},{offset:1,color:'rgba(74,144,217,.2)'}]),borderRadius:[3,3,0,0]},
-         animationDuration:1500,animationDelay:200}
+         animationDuration:1500,animationDelay:200},
+        {name:'差距比值',type:'line',yAxisIndex:1,data:[2.06,2.07,2.05],
+         smooth:true,symbol:'circle',symbolSize:8,
+         lineStyle:{color:'#E8C84A',width:2},itemStyle:{color:'#E8C84A'},
+         label:{show:true,position:'top',color:'#E8C84A',fontSize:12,formatter:'{c}'}}
       ]
     });
   }
@@ -928,7 +936,10 @@ function handleResize(){
       tooltip:{textStyle:{fontSize:isMobile?14:12}},
       legend:{textStyle:{fontSize:isMobile?13:11}},
       xAxis:{axisLabel:{fontSize:isMobile?14:12}},
-      yAxis:{axisLabel:{fontSize:isMobile?12:10}}
+      yAxis:[
+        {axisLabel:{fontSize:isMobile?12:10}},
+        {nameTextStyle:{fontSize:isMobile?12:10},axisLabel:{fontSize:isMobile?12:10}}
+      ]
     });
   }
 }
@@ -1007,11 +1018,6 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   }
 
-  // Transport flip cards
-  document.querySelectorAll('.transport-card[data-flip]').forEach(function(card){
-    card.addEventListener('click',function(){this.classList.toggle('flipped');});
-  });
-
   // Time compare slider
   const timeSlider=document.getElementById('time-slider');
   if(timeSlider){
@@ -1051,7 +1057,7 @@ document.addEventListener('DOMContentLoaded',function(){
       {sel:'.section-tag',cls:'anim-fade-in'},
       {sel:'.compare-table',cls:'anim-slide-up'},
       {sel:'.soul-quote',cls:'anim-fade-in'},
-      {sel:'.transport-cards',cls:'anim-fade-in'},
+      {sel:'.logistics-compare',cls:'anim-fade-in'},
       {sel:'.time-compare-module',cls:'anim-slide-up'}
     ];
     map.forEach(function(item){
